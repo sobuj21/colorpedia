@@ -1,31 +1,29 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ColorPedia - Discover color names, hex codes, and finishes like matte, metallic, and more.">
-  <meta name="keywords" content="colors, hex, color names, matte, metallic, palette, voice search">
-  <meta name="author" content="ColorPedia Team">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ColorPedia</title>
+  <meta name="description" content="ColorPedia lets you search color names by hex codes or find hex codes by name. Now with finishes like matte and metallic!">
+  <meta name="keywords" content="color, hex, name, matte, metallic, colorpedia, palette">
+  <meta name="author" content="ColorPedia">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>🎨 ColorPedia</h1>
-    <p>Discover every color, name, and finish</p>
-  </header>
-  <main>
-    <section id="search">
-      <input type="text" id="search-box" placeholder="Type color name or hex code..." />
-      <button id="voice-btn">🎤</button>
-      <button id="search-btn">Search</button>
-    </section>
-    <section id="color-display"></section>
-  </main>
-  <footer>
-    <p>© 2025 ColorPedia. All rights reserved.</p>
-  </footer>
+  <h1>ColorPedia</h1>
+  <div id="search-section">
+    <input type="text" id="search-box" placeholder="Enter color name or hex code" />
+    <button id="voice-btn" title="Voice Search">🎤</button>
+    <button id="search-btn">Search</button>
+    <select id="filter-select">
+      <option value="all">All Finishes</option>
+      <option value="standard">Standard</option>
+      <option value="matte">Matte</option>
+      <option value="metallic">Metallic</option>
+    </select>
+    <button id="generate-palette-btn">Generate Palette</button>
+  </div>
+  <div id="color-display"></div>
   <script src="script.js"></script>
 </body>
 </html>
