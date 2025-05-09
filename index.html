@@ -1,173 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ColorPedia</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #f8f9fa, #e0eafc);
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 {
-      color: #4a4a4a;
-      font-size: 3em;
-      margin-bottom: 10px;
-    }
-    #search-section {
-      margin: 20px auto;
-    }
-    #search-box {
-      padding: 12px;
-      width: 300px;
-      font-size: 16px;
-      border: 2px solid #ccc;
-      border-radius: 8px;
-      outline: none;
-    }
-    #search-btn {
-      padding: 12px 24px;
-      font-size: 16px;
-      margin-left: 10px;
-      border: none;
-      background-color: #4CAF50;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    #search-btn:hover {
-      background-color: #45a049;
-    }
-    #color-display {
-      margin-top: 30px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .color-card {
-      background: #fff;
-      padding: 12px;
-      margin: 12px;
-      display: inline-block;
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      width: 160px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-    .color-card:hover {
-      transform: scale(1.05);
-    }
-    .color-box {
-      height: 60px;
-      border-radius: 6px;
-      margin-bottom: 10px;
-    }
-    .color-info {
-      font-size: 14px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>ColorPedia</h1>
-
-  <div id="search-section">
-    <input type="text" id="search-box" placeholder="Enter color name or hex code">
-    <button id="search-btn">Search</button>
-  </div>
-
-  <div id="color-display"></div>
-
-  <script>
-    const colorData = {
-      "Red": "#FF0000",
-      "Matte Red": "#D32F2F",
-      "Metallic Red": "#B71C1C",
-      "Green": "#00FF00",
-      "Matte Green": "#388E3C",
-      "Metallic Green": "#1B5E20",
-      "Blue": "#0000FF",
-      "Matte Blue": "#1976D2",
-      "Metallic Blue": "#0D47A1",
-      "Yellow": "#FFFF00",
-      "Matte Yellow": "#FBC02D",
-      "Metallic Yellow": "#F9A825",
-      "Cyan": "#00FFFF",
-      "Matte Cyan": "#00ACC1",
-      "Metallic Cyan": "#00838F",
-      "Magenta": "#FF00FF",
-      "Matte Magenta": "#C2185B",
-      "Metallic Magenta": "#880E4F",
-      "Black": "#000000",
-      "Matte Black": "#212121",
-      "Metallic Black": "#424242",
-      "White": "#FFFFFF",
-      "Matte White": "#FAFAFA",
-      "Metallic White": "#ECEFF1",
-      "Orange": "#FFA500",
-      "Matte Orange": "#F57C00",
-      "Metallic Orange": "#E65100",
-      "Purple": "#800080",
-      "Matte Purple": "#7B1FA2",
-      "Metallic Purple": "#4A148C",
-      "Pink": "#FFC0CB",
-      "Matte Pink": "#EC407A",
-      "Metallic Pink": "#AD1457",
-      "Brown": "#A52A2A",
-      "Matte Brown": "#5D4037",
-      "Metallic Brown": "#3E2723",
-      "Gray": "#808080",
-      "Matte Gray": "#757575",
-      "Metallic Gray": "#616161",
-      "Lime": "#00FF00",
-      "Matte Lime": "#AFB42B",
-      "Metallic Lime": "#827717",
-      "Navy": "#000080",
-      "Matte Navy": "#283593",
-      "Metallic Navy": "#1A237E"
-    };
-
-    const searchBox = document.getElementById('search-box');
-    const searchBtn = document.getElementById('search-btn');
-    const colorDisplay = document.getElementById('color-display');
-
-    function renderColor(name, hex) {
-      return `
-        <div class="color-card">
-          <div class="color-box" style="background: ${hex}"></div>
-          <div class="color-info"><strong>${name}</strong><br>${hex}</div>
-        </div>
-      `;
-    }
-
-    function displayAllColors() {
-      colorDisplay.innerHTML = '';
-      for (const [name, hex] of Object.entries(colorData)) {
-        colorDisplay.innerHTML += renderColor(name, hex);
-      }
-    }
-
-    function searchColor() {
-      const query = searchBox.value.trim().toLowerCase();
-      colorDisplay.innerHTML = '';
-      let found = false;
-      for (const [name, hex] of Object.entries(colorData)) {
-        if (name.toLowerCase() === query || hex.toLowerCase() === query) {
-          colorDisplay.innerHTML = renderColor(name, hex);
-          found = true;
-        }
-      }
-      if (!found) {
-        colorDisplay.innerHTML = '<p>No matching color found.</p>';
-      }
-    }
-
-    searchBtn.addEventListener('click', searchColor);
-    window.onload = displayAllColors;
-  </script>
+  <input type="text" id="searchInput" placeholder="Enter color name or hex code" />
+  <button id="searchButton" onclick="searchColor(document.getElementById('searchInput').value)">Search</button>
+  <div id="colorDisplay"></div>
+  <footer>
+    <h3>Contact</h3>
+    <ul>
+      <li><a href="https://www.facebook.com/sobujis" target="_blank">Facebook</a></li>
+      <li><a href="https://wa.me/17162268360" target="_blank">WhatsApp</a></li>
+      <li><a href="https://t.me/iamSobuj" target="_blank">Telegram</a></li>
+    </ul>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
