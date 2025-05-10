@@ -128,10 +128,10 @@
       display: flex;
       flex-direction: column;
       transition: background 0.3s ease, color 0.3s ease;
-      user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
+      user-select: none; /* Disables text selection */
+      -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
       box-sizing: border-box;
     }
     h1 {
@@ -187,6 +187,7 @@
       transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s ease;
       background-color: var(--search-box-bg);
       color: var(--search-box-text);
+      /* Allow text selection specifically for input fields */
       user-select: auto;
       -webkit-user-select: auto;
       -moz-user-select: auto;
@@ -548,8 +549,7 @@
 
   </style>
 </head>
-<body>
-  <h1>ColorPedia</h1>
+<body oncontextmenu="return false;"> <h1>ColorPedia</h1>
   <p style="margin-top:-10px; margin-bottom: 20px;">Discover and explore a world of colors!</p>
 
   <div id="search-section">
@@ -584,8 +584,14 @@
   </footer>
 
   <script defer>
-   
+    // --- Start of JavaScript Obfuscation Notice ---
+    // The following JavaScript code might be intentionally obfuscated (made harder to read)
+    // to discourage direct copying. While this provides a layer of protection,
+    // determined individuals with browser developer tools can still analyze the code's behavior.
+    // True client-side encryption that prevents execution analysis is not feasible.
+    // --- End of JavaScript Obfuscation Notice ---
 
+    // Original JavaScript code (can be obfuscated before deployment)
     const copyIconSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>`;
 
     const colorDatabase = [
@@ -839,35 +845,85 @@
         });
     }
 
+    // --- MODIFIED COPY FUNCTION ---
     colorDisplayElement.addEventListener('click', function(event) {
       const target = event.target.closest('.copy-hex-btn');
       if (target) {
         const hexToCopy = target.dataset.hex;
-        navigator.clipboard.writeText(hexToCopy).then(() => {
+
+        const showSuccess = () => {
           target.innerHTML = 'Copied!';
           target.classList.add('copied');
           target.classList.remove('error');
-          target.disabled = true;  
-
+          target.disabled = true;
           setTimeout(() => {
             target.innerHTML = copyIconSVG;
             target.classList.remove('copied');
             target.disabled = false;
           }, 1500);
-        }).catch(err => {
-          console.error('Failed to copy hex: ', err);
-          target.innerHTML = 'Error';
+        };
+
+        const showError = () => {
+          target.innerHTML = 'Error!';
           target.classList.add('error');
           target.classList.remove('copied');
           target.disabled = true;
-            setTimeout(() => {
+          setTimeout(() => {
             target.innerHTML = copyIconSVG;
             target.classList.remove('error');
             target.disabled = false;
           }, 1500);
-        });
+        };
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(hexToCopy).then(showSuccess).catch(err => {
+            console.warn('navigator.clipboard.writeText failed, trying fallback: ', err);
+            // Fallback to execCommand
+            fallbackCopyTextToClipboard(hexToCopy, target, showSuccess, showError);
+          });
+        } else {
+          // Fallback for older browsers or non-secure contexts
+          console.warn('navigator.clipboard.writeText not available, using fallback.');
+          fallbackCopyTextToClipboard(hexToCopy, target, showSuccess, showError);
+        }
       }
     });
+
+    function fallbackCopyTextToClipboard(text, buttonElement, successCallback, errorCallback) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      
+      // Avoid scrolling to bottom
+      textArea.style.top = "0";
+      textArea.style.left = "0";
+      textArea.style.position = "fixed";
+      // Make it non-editable to avoid focusing and potential keyboard issues
+      textArea.setAttribute('readonly', '');
+      // Hide the textarea
+      textArea.style.opacity = "0";
+
+
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+
+      try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+          successCallback();
+        } else {
+          console.error('Fallback: Copying text command was unsuccessful');
+          errorCallback();
+        }
+      } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+        errorCallback();
+      }
+
+      document.body.removeChild(textArea);
+    }
+    // --- END OF MODIFIED COPY FUNCTION ---
+
 
     // Scroll to Top Button Functionality
     if (scrollToTopBtnElement) {
@@ -912,6 +968,30 @@
         } else {
             appendInitialSampleCards();
         }
+
+        // Disable common keyboard shortcuts for developer tools
+        document.addEventListener('keydown', function(event) {
+            // Disable F12
+            if (event.key === "F12") {
+                event.preventDefault();
+            }
+            // Disable Ctrl+Shift+I (Windows/Linux) or Cmd+Option+I (Mac)
+            if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === 'I') {
+                event.preventDefault();
+            }
+            // Disable Ctrl+Shift+J (Windows/Linux) or Cmd+Option+J (Mac)
+            if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === 'J') {
+                event.preventDefault();
+            }
+            // Disable Ctrl+U (Windows/Linux) or Cmd+U (Mac)
+            if ((event.ctrlKey || event.metaKey) && event.key === 'U') {
+                event.preventDefault();
+            }
+             // Disable Ctrl+Shift+C (Windows/Linux) or Cmd+Option+C (Mac) - Element inspector
+            if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === 'C') {
+                event.preventDefault();
+            }
+        });
     };
 
   </script>
