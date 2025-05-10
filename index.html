@@ -1,25 +1,237 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ColorPedia</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ColorPedia: Your ultimate guide to discovering and searching a vast collection of color names and their hex codes. Find the perfect color for your projects.">
+  <meta name="keywords" content="color, hex code, color names, color picker, web colors, design, palette, ColorPedia, color search, HTML colors, CSS colors">
+  <title>ColorPedia - Find Your Perfect Color</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    h1 {
+      color: #2c3e50;
+      font-size: 3.5em;
+      margin-bottom: 15px;
+      font-weight: 600;
+      letter-spacing: -1px;
+    }
+    #search-section {
+      margin: 25px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 500px;
+      width: 90%;
+    }
+    #search-box {
+      padding: 14px 18px;
+      width: 70%;
+      font-size: 1em;
+      border: 1px solid #bdc3c7;
+      border-radius: 8px 0 0 8px;
+      outline: none;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    #search-box:focus {
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    }
+    #search-btn {
+      padding: 14px 28px;
+      font-size: 1em;
+      border: none;
+      background-color: #3498db; /* Modern blue */
+      color: white;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-weight: 500;
+    }
+    #search-btn:hover {
+      background-color: #2980b9;
+    }
+    #color-display {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px; /* For spacing between cards */
+      padding-bottom: 80px; /* Space for footer */
+      flex-grow: 1;
+    }
+    .color-card {
+      background: #fff;
+      padding: 15px;
+      margin: 0; 
+      border-radius: 12px;
+      border: 1px solid #e0e0e0;
+      width: 180px; 
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+    .color-card:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+    .color-box {
+      height: 70px; 
+      border-radius: 8px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(0,0,0,0.05); 
+    }
+    .color-info {
+      font-size: 0.9em;
+    }
+    .color-info strong {
+      font-size: 1.05em;
+      color: #34495e;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .color-info .hex-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 4px;
+    }
+    .color-info .hex-container span {
+      color: #7f8c8d;
+      font-family: 'Courier New', Courier, monospace;
+      font-size:0.95em;
+    }
+    .copy-hex-btn {
+      background: #ecf0f1;
+      border: 1px solid #bdc3c7;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 4px 6px; 
+      margin-left: 8px;
+      line-height: 1; 
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+      display: flex; /* For centering icon */
+      align-items: center;
+      justify-content: center;
+    }
+    .copy-hex-btn:hover {
+      background-color: #dfe4e7;
+      border-color: #adb5bd;
+    }
+    .copy-hex-btn svg {
+      display: block; 
+      width: 14px; /* Adjusted icon size */
+      height: 14px;
+    }
+    .copy-hex-btn.copied {
+      background-color: #2ecc71; 
+      color: white;
+      border-color: #27ae60;
+      font-size: 0.8em; /* For text "Copied!" */
+      padding: 5px 6px; /* Adjust padding for text */
+    }
+    .copy-hex-btn.copied svg { /* Hide icon when text is shown */
+      display: none;
+    }
+     .copy-hex-btn.error {
+      background-color: #e74c3c; /* Red for error */
+      color: white;
+      border-color: #c0392b;
+      font-size: 0.8em;
+      padding: 5px 6px;
+    }
+    .copy-hex-btn.error svg { /* Hide icon when text is shown */
+      display: none;
+    }
+
+    .no-results, .initial-message {
+      font-size: 1.2em;
+      color: #7f8c8d;
+      margin-top: 30px;
+      width: 100%; /* Ensure message takes full width if alone */
+    }
+    footer {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      padding: 20px;
+      margin-top: auto; 
+      font-size: 0.9em;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    footer p {
+      margin: 8px 0; /* Increased margin for better spacing */
+    }
+    footer a {
+      color: #3498db;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    footer a:hover {
+      color: #5dade2;
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
   <h1>ColorPedia</h1>
-  <input type="text" id="searchInput" placeholder="Enter color name or hex code" />
-  <button id="searchButton" onclick="searchColor(document.getElementById('searchInput').value)">Search</button>
-  <div id="colorDisplay"></div>
+  <p style="margin-top:-10px; margin-bottom: 20px; color: #555;">Discover and explore a world of colors!</p>
+
+  <div id="search-section">
+    <input type="text" id="search-box" placeholder="Enter color name or hex (e.g., Sky Blue or #87CEEB)">
+    <button id="search-btn">Search</button>
+  </div>
+
+  <div id="color-display">
+    <p class="initial-message">Explore colors by searching above, or see a selection of our vibrant palette!</p>
+  </div>
+
   <footer>
-    <h3>Contact</h3>
-    <ul>
-      <li><a href="https://www.facebook.com/sobujis" target="_blank">Facebook</a></li>
-      <li><a href="https://wa.me/17162268360" target="_blank">WhatsApp</a></li>
-      <li><a href="https://t.me/iamSobuj" target="_blank">Telegram</a></li>
-    </ul>
+    <p>Contact me:</p>
+    <p>
+      <a href="https://www.facebook.com/sobujis" target="_blank" rel="noopener noreferrer">Facebook</a> |
+      WhatsApp: +17162268360 |
+      Telegram: <a href="https://t.me/iamSobuj" target="_blank" rel="noopener noreferrer">@iamSobuj</a>
+    </p>
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> ColorPedia. Powered by Sobuj Islam. All rights reserved.</p>
   </footer>
-  <script src="script.js"></script>
+
+  <script defer>
+const copyIconSVG=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>`;const colorDatabase=[{name:"Indian Red",hex:"#CD5C5C"},{name:"Light Coral",hex:"#F08080"},{name:"Salmon",hex:"#FA8072"},{name:"Dark Salmon",hex:"#E9967A"},{name:"Light Salmon",hex:"#FFA07A"},{name:"Crimson",hex:"#DC143C"},{name:"Red",hex:"#FF0000"},{name:"Matte Red",hex:"#B33F40"},{name:"Glossy Red",hex:"#DD0004"},{name:"Light Red",hex:"#c91100"},{name:"Metallic Red",hex:"#B71C1C"},{name:"Fire Brick",hex:"#B22222"},{name:"Dark Red",hex:"#8B0000"},{name:"Pink",hex:"#FFC0CB"},{name:"Matte Pink",hex:"#EC407A"},{name:"Metallic Pink",hex:"#AD1457"},{name:"Light Pink",hex:"#FFB6C1"},{name:"Hot Pink",hex:"#FF69B4"},{name:"Deep Pink",hex:"#FF1493"},{name:"Medium Violet Red",hex:"#C71585"},{name:"Pale Violet Red",hex:"#DB7093"},{name:"Soft Pink",hex:"#E89EB8"},{name:"Coral",hex:"#FF7F50"},{name:"Tomato",hex:"#FF6347"},{name:"Orange Red",hex:"#FF4500"},{name:"Dark Orange",hex:"#FF8C00"},{name:"Orange",hex:"#FFA500"},{name:"Matte Orange",hex:"#F57C00"},{name:"Metallic Orange",hex:"#E65100"},{name:"Gold",hex:"#FFD700"},{name:"Yellow",hex:"#FFFF00"},{name:"Matte Yellow",hex:"#FBC02D"},{name:"Metallic Yellow",hex:"#F9A825"},{name:"Light Yellow",hex:"#FFFFE0"},{name:"Lemon Chiffon",hex:"#FFFACD"},{name:"Papaya Whip",hex:"#FFEFD5"},{name:"Moccasin",hex:"#FFE4B5"},{name:"Peach Puff",hex:"#FFDAB9"},{name:"Pale Goldenrod",hex:"#EEE8AA"},{name:"Khaki",hex:"#F0E68C"},{name:"Dark Khaki",hex:"#BDB76B"},{name:"Green Yellow",hex:"#ADFF2F"},{name:"Chartreuse",hex:"#7FFF00"},{name:"Lawn Green",hex:"#7CFC00"},{name:"Lime",hex:"#00FF00"},{name:"Matte Lime",hex:"#AFB42B"},{name:"Metallic Lime",hex:"#827717"},{name:"Lime Green",hex:"#32CD32"},{name:"Pale Green",hex:"#98FB98"},{name:"Light Green",hex:"#90EE90"},{name:"Medium Spring Green",hex:"#00FA9A"},{name:"Spring Green",hex:"#00FF7F"},{name:"Medium Sea Green",hex:"#3CB371"},{name:"Sea Green",hex:"#2E8B57"},{name:"Forest Green",hex:"#228B22"},{name:"Green",hex:"#008000"},{name:"Matte Green",hex:"#48A14D"},{name:"Metallic Green",hex:"#1B5E20"},{name:"Dark Green",hex:"#006400"},{name:"Yellow Green",hex:"#9ACD32"},{name:"Olive Drab",hex:"#6B8E23"},{name:"Olive",hex:"#808000"},{name:"Dark Olive Green",hex:"#556B2F"},{name:"Dark Sea Green",hex:"#8FBC8F"},{name:"Light Sea Green",hex:"#20B2AA"},{name:"Dark Cyan",hex:"#008B8B"},{name:"Teal",hex:"#008080"},{name:"Aqua",hex:"#00FFFF"},{name:"Cyan",hex:"#00FFFF"},{name:"Matte Cyan",hex:"#00ACC1"},{name:"Metallic Cyan",hex:"#00838F"},{name:"Light Cyan",hex:"#E0FFFF"},{name:"Pale Turquoise",hex:"#AFEEEE"},{name:"Aquamarine",hex:"#7FFFD4"},{name:"Turquoise",hex:"#40E0D0"},{name:"Medium Turquoise",hex:"#48D1CC"},{name:"Dark Turquoise",hex:"#00CED1"},{name:"Cadet Blue",hex:"#5F9EA0"},{name:"Steel Blue",hex:"#4682B4"},{name:"Light Steel Blue",hex:"#B0C4DE"},{name:"Powder Blue",hex:"#B0E0E6"},{name:"Light Blue",hex:"#ADD8E6"},{name:"Sky Blue",hex:"#87CEEB"},{name:"Light Sky Blue",hex:"#87CEFA"},{name:"Deep Sky Blue",hex:"#00BFFF"},{name:"Dodger Blue",hex:"#1E90FF"},{name:"Cornflower Blue",hex:"#6495ED"},{name:"Medium Slate Blue",hex:"#7B68EE"},{name:"Royal Blue",hex:"#4169E1"},{name:"Blue",hex:"#0000FF"},{name:"Matte Blue",hex:"#1976D2"},{name:"Metallic Blue",hex:"#0D47A1"},{name:"Medium Blue",hex:"#0000CD"},{name:"Dark Blue",hex:"#00008B"},{name:"Navy",hex:"#000080"},{name:"Matte Navy",hex:"#283593"},{name:"Metallic Navy",hex:"#1A237E"},{name:"Midnight Blue",hex:"#191970"},{name:"Brilliant Blue",hex:"#2752D6"},{name:"Lavender",hex:"#E6E6FA"},{name:"Thistle",hex:"#D8BFD8"},{name:"Plum",hex:"#DDA0DD"},{name:"Violet",hex:"#EE82EE"},{name:"Matte Violet",hex:"#8658A5"},{name:"Orchid",hex:"#DA70D6"},{name:"Fuchsia",hex:"#FF00FF"},{name:"Magenta",hex:"#FF00FF"},{name:"Matte Magenta",hex:"#C2185B"},{name:"Metallic Magenta",hex:"#880E4F"},{name:"Medium Orchid",hex:"#BA55D3"},{name:"Medium Purple",hex:"#9370DB"},{name:"Rebecca Purple",hex:"#663399"},{name:"Blue Violet",hex:"#8A2BE2"},{name:"Dark Violet",hex:"#9400D3"},{name:"Dark Orchid",hex:"#9932CC"},{name:"Dark Magenta",hex:"#8B008B"},{name:"Purple",hex:"#800080"},{name:"Matte Purple",hex:"#7B1FA2"},{name:"Metallic Purple",hex:"#4A148C"},{name:"Indigo",hex:"#4B0082"},{name:"Slate Blue",hex:"#6A5ACD"},{name:"Dark Slate Blue",hex:"#483D8B"},{name:"Matte Burgundy",hex:"#691C2D"},{name:"Cornsilk",hex:"#FFF8DC"},{name:"Blanched Almond",hex:"#FFEBCD"},{name:"Bisque",hex:"#FFE4C4"},{name:"Navajo White",hex:"#FFDEAD"},{name:"Wheat",hex:"#F5DEB3"},{name:"Burly Wood",hex:"#DEB887"},{name:"Tan",hex:"#D2B48C"},{name:"Rosy Brown",hex:"#BC8F8F"},{name:"Sandy Brown",hex:"#F4A460"},{name:"Goldenrod",hex:"#DAA520"},{name:"Dark Goldenrod",hex:"#B8860B"},{name:"Peru",hex:"#CD853F"},{name:"Chocolate",hex:"#D2691E"},{name:"Saddle Brown",hex:"#8B4513"},{name:"Sienna",hex:"#A0522D"},{name:"Brown",hex:"#A52A2A"},{name:"Matte Brown",hex:"#5D4037"},{name:"Metallic Brown",hex:"#3E2723"},{name:"Maroon",hex:"#800000"},{name:"White",hex:"#FFFFFF"},{name:"Matte White",hex:"#e6e9e9"},{name:"Metallic White",hex:"#ECEFF1"},{name:"Snow",hex:"#FFFAFA"},{name:"Honey Dew",hex:"#F0FFF0"},{name:"Mint Cream",hex:"#F5FFFA"},{name:"Azure",hex:"#F0FFFF"},{name:"Alice Blue",hex:"#F0F8FF"},{name:"Ghost White",hex:"#F8F8FF"},{name:"White Smoke",hex:"#F5F5F5"},{name:"Sea Shell",hex:"#FFF5EE"},{name:"Beige",hex:"#F5F5DC"},{name:"Old Lace",hex:"#FDF5E6"},{name:"Floral White",hex:"#FFFAF0"},{name:"Ivory",hex:"#FFFFF0"},{name:"Antique White",hex:"#FAEBD7"},{name:"Linen",hex:"#FAF0E6"},{name:"Lavender Blush",hex:"#FFF0F5"},{name:"Gainsboro",hex:"#DCDCDC"},{name:"Light Gray",hex:"#D3D3D3"},{name:"Silver",hex:"#C0C0C0"},{name:"Dark Gray",hex:"#A9A9A9"},{name:"Gray",hex:"#808080"},{name:"Matte Gray",hex:"#757575"},{name:"Metallic Gray",hex:"#616161"},{name:"Silver Gray Metallic",hex:"#8A92A6"},{name:"Dim Gray",hex:"#696969"},{name:"Light Slate Gray",hex:"#778899"},{name:"Slate Gray",hex:"#708090"},{name:"Dark Slate Gray",hex:"#2F4F4F"},{name:"Black",hex:"#000000"},{name:"Matte Black",hex:"#28282B"},{name:"Velvet Black",hex:"#231f20"},{name:"Metallic Black",hex:"#424242"}];const searchBox=document.getElementById('search-box');const searchBtn=document.getElementById('search-btn');const colorDisplay=document.getElementById('color-display');function renderColorCard(name,hex){const properHex=hex.toUpperCase();return`
+        <div class="color-card">
+          <div class="color-box" style="background: ${properHex}"></div>
+          <div class="color-info">
+            <strong>${name}</strong>
+            <div class="hex-container">
+              <span>${properHex}</span>
+              <button class="copy-hex-btn" data-hex="${properHex}" title="Copy hex code">
+                ${copyIconSVG}
+              </button>
+            </div>
+          </div>
+        </div>`}
+function displayColors(colorsToDisplay){let htmlContent='';if(colorsToDisplay.length>0){for(const color of colorsToDisplay){htmlContent+=renderColorCard(color.name,color.hex)}}else if(searchBox.value.trim()!==''){htmlContent='<p class="no-results">No matching color found. Try a different name or hex code.</p>'}else{htmlContent='<p class="initial-message">Explore our palette by searching, or see some examples below!</p>'}
+colorDisplay.innerHTML=htmlContent}
+function performSearch(){const query=searchBox.value.trim().toLowerCase();if(query===""){const initialMsgElement=document.querySelector('#color-display .initial-message');if(initialMsgElement){initialMsgElement.innerHTML='Enter a color name or hex code to start your search, or discover some of our featured colors below!'}else if(colorDisplay.children.length===0||!colorDisplay.querySelector('.color-card')){colorDisplay.innerHTML='<p class="initial-message">Enter a color name or hex code to start your search, or discover some of our featured colors below!</p>'}
+displayInitialSample();return}
+const hexQuery=query.startsWith('#')?query.substring(1):query;const filteredColors=colorDatabase.filter(color=>{const colorNameLower=color.name.toLowerCase();const colorHexLower=color.hex.toLowerCase();const cleanColorHex=colorHexLower.startsWith('#')?colorHexLower.substring(1):colorHexLower;return colorNameLower.includes(query)||cleanColorHex===hexQuery||colorHexLower===query});displayColors(filteredColors)}
+function displayInitialSample(){const sampleSize=12;const sampleColors=[];const usedIndices=new Set();if(colorDatabase.length===0){displayColors([]);return}
+const effectiveSampleSize=Math.min(sampleSize,colorDatabase.length);if(colorDatabase.length<=effectiveSampleSize){sampleColors.push(...colorDatabase)}else{while(sampleColors.length<effectiveSampleSize){const randomIndex=Math.floor(Math.random()*colorDatabase.length);if(!usedIndices.has(randomIndex)){sampleColors.push(colorDatabase[randomIndex]);usedIndices.add(randomIndex)}}}
+displayColors(sampleColors)}
+searchBtn.addEventListener('click',performSearch);searchBox.addEventListener('keypress',function(event){if(event.key==='Enter'){performSearch()}});colorDisplay.addEventListener('click',function(event){const target=event.target.closest('.copy-hex-btn');if(target){const hexToCopy=target.dataset.hex;navigator.clipboard.writeText(hexToCopy).then(()=>{target.innerHTML='Copied!';target.classList.add('copied');target.classList.remove('error');target.disabled=true;setTimeout(()=>{target.innerHTML=copyIconSVG;target.classList.remove('copied');target.disabled=false},1500)}).catch(err=>{console.error('Failed to copy hex: ',err);target.innerHTML='Error';target.classList.add('error');target.classList.remove('copied');target.disabled=true;setTimeout(()=>{target.innerHTML=copyIconSVG;target.classList.remove('error');target.disabled=false},1500)})}});window.onload=()=>{const initialMessageElement=colorDisplay.querySelector('.initial-message');if(initialMessageElement){initialMessageElement.innerHTML="Welcome to ColorPedia! Here's a taste of our vibrant palette. Use the search bar above to find specific colors."}else{colorDisplay.innerHTML='<p class="initial-message">Welcome to ColorPedia! Here\'s a taste of our vibrant palette. Use the search bar above to find specific colors.</p>'+colorDisplay.innerHTML}
+displayInitialSample()};
+  </script>
 </body>
 </html>
