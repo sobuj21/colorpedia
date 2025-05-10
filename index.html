@@ -24,883 +24,12 @@
       --bg-gradient: linear-gradient(135deg, #f5f7fa, #c3cfe2);
       --text-primary: #333;
       --text-secondary: #555;
-      --header-color: #2c3e50;
-      --search-section-bg: rgba(255, 255, 255, 0.15);
-      --search-section-border: rgba(255, 255, 255, 0.2);
-      --search-section-shadow: 0 6px 20px rgba(31, 38, 135, 0.1);
-      --search-neon-glow-color: rgba(0, 123, 255, 0.5);
-      --search-box-bg: rgba(255, 255, 255, 0.4);
-      --search-box-border: rgba(220, 220, 220, 0.4);
-      --search-box-text: #333;
-      --search-box-placeholder: #777;
-      --search-box-focus-border: #007bff;
-      --search-box-focus-bg: rgba(255, 255, 255, 0.7);
-      --search-btn-bg: #007bff;
-      --search-btn-hover-bg: #0056b3;
-      --search-btn-text: white;
-      --card-bg: rgba(255, 255, 255, 0.3);
-      --card-border: rgba(255, 255, 255, 0.4);
-      --card-shadow: 0 5px 20px rgba(0,0,0,0.08);
-      --card-hover-bg: rgba(255, 255, 255, 0.45);
-      --card-text-strong: #34495e;
-      --card-text-hex: #525252;
-      --copy-btn-bg: rgba(236, 240, 241, 0.7);
-      --copy-btn-border: rgba(189, 195, 199, 0.7);
-      --copy-btn-icon-fill: #333;
-      --message-bg: rgba(255, 255, 255, 0.15);
-      --message-border: rgba(255, 255, 255, 0.2);
-      --message-text: #5a6870;
-      --footer-bg: rgba(255, 255, 255, 0.1); 
-      --footer-border-top: transparent; 
-      --footer-text: #4a5568; 
-      --footer-link: #007bff;
-      --footer-link-hover: #0056b3;
-      --footer-neon-glow-color: rgba(0, 123, 255, 0.55);
-      --footer-base-shadow-for-neon: 0 -2px 8px rgba(0,0,0,0.07); 
-      --toggle-bg: #555;
-      --toggle-icon-fill: #fff;
-    }
+      
+      /* H1 Neon Effect Variables - Light Mode (Black Neon) */
+      --h1-text-color: #000000; /* Black text */
+      --h1-neon-glow-color: rgba(0, 0, 0, 0.5); /* Blackish glow */
+      --h1-neon-glow-color-outer: rgba(0, 0, 0, 0.3); /* Softer blackish glow */
 
-    body.dark-mode {
-      /* Dark Mode Variables */
-      --bg-gradient: linear-gradient(135deg, #232526, #414345);
-      --text-primary: #e0e0e0;
-      --text-secondary: #b0b0b0;
-      --header-color: #e0e0e0;
-      --search-section-bg: rgba(0, 0, 0, 0.2);
-      --search-section-border: rgba(255, 255, 255, 0.1);
-      --search-section-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-      --search-neon-glow-color: rgba(23, 162, 184, 0.6);
-      --search-box-bg: rgba(0, 0, 0, 0.25);
-      --search-box-border: rgba(255, 255, 255, 0.15);
-      --search-box-text: #f0f0f0;
-      --search-box-placeholder: #aaa;
-      --search-box-focus-border: #17a2b8;
-      --search-box-focus-bg: rgba(0, 0, 0, 0.35);
-      --search-btn-bg: #17a2b8;
-      --search-btn-hover-bg: #117a8b;
-      --search-btn-text: white;
-      --card-bg: rgba(40, 40, 40, 0.4);
-      --card-border: rgba(255, 255, 255, 0.1);
-      --card-shadow: 0 5px 20px rgba(0,0,0,0.2);
-      --card-hover-bg: rgba(50, 50, 50, 0.55);
-      --card-text-strong: #e0e0e0;
-      --card-text-hex: #b0b0b0;
-      --copy-btn-bg: rgba(60, 60, 60, 0.7);
-      --copy-btn-border: rgba(100, 100, 100, 0.7);
-      --copy-btn-icon-fill: #e0e0e0;
-      --message-bg: rgba(0, 0, 0, 0.2);
-      --message-border: rgba(255, 255, 255, 0.1);
-      --message-text: #b0b0b0;
-      --footer-bg: rgba(10, 10, 20, 0.15); 
-      --footer-border-top: transparent; 
-      --footer-text: #cbd5e0; 
-      --footer-link: #17a2b8; 
-      --footer-link-hover: #20c997; 
-      --footer-neon-glow-color: rgba(23, 162, 184, 0.7);
-      --footer-base-shadow-for-neon: 0 -2px 8px rgba(0,0,0,0.25); 
-      --toggle-bg: #ccc;
-      --toggle-icon-fill: #333;
-    }
-    
-    /* Universal box-sizing */
-    *, *::before, *::after {
-        box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg-gradient);
-      margin: 0;
-      padding: 15px; /* Adjusted padding for better spacing on small screens */
-      text-align: center;
-      color: var(--text-primary);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      transition: background 0.3s ease, color 0.3s ease;
-      user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      overflow-x: hidden; /* Prevent horizontal scroll */
-    }
-    h1 {
-      color: var(--header-color);
-      font-size: 2.8em; /* Base size adjusted */
-      margin-bottom: 10px; /* Adjusted margin */
-      font-weight: 600;
-      letter-spacing: -1px;
-    }
-    p { 
-      color: var(--text-secondary);
-      font-size: 0.95em; /* Slightly adjust base paragraph size */
-      line-height: 1.5;
-    }
-    /* Main content wrapper for better control if needed */
-    .main-content {
-        width: 100%;
-        max-width: 1200px; /* Max width for very large screens */
-        margin-left: auto;
-        margin-right: auto;
-        flex-grow: 1; /* Allows content to fill space */
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Center content like search and cards */
-    }
-
-
-    #search-section {
-      margin: 20px auto; /* Adjusted margin */
-      display: flex; 
-      gap: 8px; 
-      align-items: center; 
-      max-width: 600px; /* Slightly reduced max-width */
-      width: 100%; /* Changed from 90% to 100% to use body padding */
-      background: var(--search-section-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: 20px; 
-      padding: 5px; 
-      border: 1px solid transparent; 
-      box-shadow:
-        var(--search-section-shadow), 
-        0 0 10px var(--search-neon-glow-color), 
-        0 0 20px var(--search-neon-glow-color), 
-        0 0 30px var(--search-neon-glow-color); 
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    #search-box {
-      padding: 15px 20px; /* Adjusted padding */
-      flex-grow: 1; 
-      font-size: 1em; /* Adjusted font size */
-      border: 1px solid var(--search-box-border); 
-      border-radius: 18px; 
-      outline: none;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
-      transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s ease;
-      background-color: var(--search-box-bg);
-      color: var(--search-box-text);
-      user-select: auto;
-      -webkit-user-select: auto;
-      -moz-user-select: auto;
-      -ms-user-select: auto;
-    }
-    #search-box::placeholder {
-        color: var(--search-box-placeholder);
-        opacity: 0.8;
-    }
-    #search-box:focus {
-      border-color: var(--search-box-focus-border);
-      background-color: var(--search-box-focus-bg);
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
-      color: var(--search-box-text);
-    }
-
-    #search-btn {
-      padding: 15px 25px; /* Adjusted padding */
-      font-size: 1em; /* Adjusted font size */
-      border: 1px solid var(--search-btn-bg); 
-      background-color: var(--search-btn-bg);
-      color: var(--search-btn-text);
-      border-radius: 18px; 
-      cursor: pointer;
-      transition: background-color 0.3s, transform 0.2s, border-color 0.3s;
-      font-weight: 500;
-      flex-shrink: 0; 
-    }
-    #search-btn:hover {
-      background-color: var(--search-btn-hover-bg);
-      border-color: var(--search-btn-hover-bg);
-      transform: translateY(-1px);
-    }
-
-    #color-display {
-      margin-top: 25px; /* Adjusted margin */
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px; /* Base gap */
-      padding-bottom: 80px; 
-      width: 100%; /* Ensure it takes full width of its container */
-    }
-    .color-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--card-border);
-      padding: 12px; /* Adjusted padding */ 
-      border-radius: 12px;
-      width: calc(50% - 10px); /* Default to 2 columns, accounting for gap */
-      max-width: 180px; /* Max width for larger screens, preventing them from getting too big */
-      min-width: 140px; /* Minimum width for smaller screens */
-      box-shadow: var(--card-shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      text-align: left;
-    }
-    .color-card:hover {
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-      background: var(--card-hover-bg);
-    }
-    .color-box {
-      height: 60px;  /* Adjusted height */
-      border-radius: 8px;
-      margin-bottom: 10px; /* Adjusted margin */
-      border: 1px solid rgba(0,0,0,0.05);  
-    }
-    .color-info {
-      font-size: 0.85em; /* Adjusted font size */
-    }
-    .color-info strong {
-      font-size: 1em; /* Relative to parent .color-info */
-      color: var(--card-text-strong);
-      display: block;
-      margin-bottom: 3px; /* Adjusted margin */
-      word-break: break-word; /* Prevent overflow of long color names */
-    }
-    .color-info .hex-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 3px; /* Adjusted margin */
-    }
-    .color-info .hex-container span {
-      color: var(--card-text-hex);
-      font-family: 'Courier New', Courier, monospace;
-      font-size:0.9em; /* Relative to parent .color-info */
-    }
-    .copy-hex-btn {
-      background: var(--copy-btn-bg);
-      border: 1px solid var(--copy-btn-border);
-      border-radius: 4px;
-      cursor: pointer;
-      padding: 3px 5px;  /* Adjusted padding */
-      margin-left: 6px; /* Adjusted margin */
-      line-height: 1;  
-      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .copy-hex-btn svg {
-      fill: var(--copy-btn-icon-fill);
-      display: block;  
-      width: 12px; /* Adjusted size */
-      height: 12px; /* Adjusted size */
-    }
-
-    .no-results, .initial-message {
-      font-size: 1em; /* Adjusted font size */
-      color: var(--message-text);
-      margin-top: 20px; 
-      width: 100%; 
-      max-width: 600px; /* Consistent with search section */
-      background: var(--message-bg);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
-      padding: 12px; /* Adjusted padding */
-      border-radius: 8px;
-      border: 1px solid var(--message-border);
-    }
-     .initial-message { 
-        margin-bottom: 15px; 
-    }
-
-    footer {
-      background: var(--footer-bg);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border: 1px solid transparent; 
-      color: var(--footer-text);
-      padding: 15px 20px; /* Adjusted padding */
-      margin-top: auto;  
-      font-size: 0.85em; /* Adjusted font size */
-      width: 100%; /* Take full width of viewport */
-      border-radius: 15px 15px 0 0; /* Adjusted rounding */
-      position: relative;
-      transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-      box-shadow:
-        var(--footer-base-shadow-for-neon), 
-        0 0 8px var(--footer-neon-glow-color), 
-        0 0 15px var(--footer-neon-glow-color),
-        0 0 25px var(--footer-neon-glow-color); /* Adjusted glow */
-    }
-    footer p {
-      margin: 6px 0; /* Adjusted margin */
-      color: var(--footer-text); 
-      word-break: break-word; /* Allow long lines (like WhatsApp number) to wrap */
-    }
-    footer a {
-      color: var(--footer-link);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s, text-shadow 0.3s;
-    }
-    footer a:hover {
-      color: var(--footer-link-hover);
-      text-shadow: 0 0 6px var(--footer-link-hover-shadow, rgba(130, 192, 230, 0.5));
-    }
-    body.dark-mode footer a:hover {
-        --footer-link-hover-shadow: rgba(169, 214, 245, 0.6); 
-    }
-
-    #dark-mode-toggle {
-      position: absolute;
-      top: 15px; /* Adjusted position */
-      right: 15px; /* Adjusted position */
-      background: var(--toggle-bg);
-      color: var(--toggle-icon-fill); 
-      border: none;
-      border-radius: 50%;
-      width: 36px; /* Adjusted size */
-      height: 36px; /* Adjusted size */
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-    #dark-mode-toggle:hover {
-      transform: scale(1.1);
-    }
-    #dark-mode-toggle svg {
-      width: 18px; /* Adjusted size */
-      height: 18px; /* Adjusted size */
-      fill: var(--toggle-icon-fill); 
-      transition: fill 0.3s ease;
-    }
-
-    /* Responsive Media Queries */
-
-    /* Medium screens (tablets, larger phones) */
-    @media (min-width: 769px) {
-        h1 {
-            font-size: 3.2em;
-        }
-        #search-box, #search-btn {
-            padding: 18px 22px;
-            font-size: 1.1em;
-        }
-         #search-btn {
-            padding: 18px 28px;
-         }
-        .color-card {
-            width: calc(33.333% - 10px); /* 3 columns */
-        }
-        footer {
-            font-size: 0.9em;
-            padding: 20px 25px;
-        }
-        #dark-mode-toggle {
-            width: 40px;
-            height: 40px;
-            top: 20px;
-            right: 25px;
-        }
-        #dark-mode-toggle svg {
-            width: 20px;
-            height: 20px;
-        }
-    }
-    
-    /* Smaller screens (most mobile phones in portrait) */
-    @media (max-width: 768px) {
-        .color-card {
-            width: calc(50% - 10px); /* 2 columns for tablets / large phones */
-            min-width: 150px; /* Ensure cards are not too small */
-        }
-         h1 {
-            font-size: 2.5em;
-        }
-    }
-
-
-    @media (max-width: 480px) {
-        body {
-            padding: 10px; /* Reduce body padding further */
-        }
-        h1 {
-            font-size: 2em; /* Smaller h1 for small mobile */
-            margin-bottom: 15px;
-        }
-        #search-section {
-            flex-direction: column; /* Stack search input and button */
-            gap: 10px;
-            padding: 10px; /* More padding inside search section when stacked */
-            border-radius: 15px;
-        }
-        #search-box {
-            width: 100%; /* Full width for stacked input */
-            border-radius: 15px; /* Consistent rounding */
-            font-size: 0.95em;
-            padding: 12px 18px;
-        }
-        #search-btn {
-            width: 100%; /* Full width for stacked button */
-            border-radius: 15px; /* Consistent rounding */
-            font-size: 0.95em;
-            padding: 12px 20px;
-        }
-        #color-display {
-            gap: 10px; /* Reduce gap for single column */
-        }
-        .color-card {
-            width: 100%; /* Single column for very small screens */
-            max-width: none; /* Allow full width */
-            min-width: 0; /* Reset min-width */
-            padding: 10px;
-        }
-        .color-box {
-            height: 50px;
-        }
-         .color-info strong {
-             font-size: 0.95em;
-         }
-         .color-info .hex-container span {
-             font-size: 0.85em;
-         }
-        footer {
-            padding: 10px 15px;
-            font-size: 0.8em;
-        }
-        footer p {
-            margin: 5px 0;
-        }
-        #dark-mode-toggle {
-            top: 10px;
-            right: 10px;
-            width: 32px;
-            height: 32px;
-        }
-        #dark-mode-toggle svg {
-            width: 16px;
-            height: 16px;
-        }
-    }
-     /* Specific fix for search input and button border radius when not stacked */
-    @media (min-width: 481px) {
-        #search-box {
-            border-radius: 18px 0 0 18px; /* Original style for non-stacked */
-             border-right: none; /* Original style for non-stacked */
-        }
-        #search-btn {
-            border-radius: 0 18px 18px 0; /* Original style for non-stacked */
-        }
-        /* Re-apply flex-direction row if it was column */
-        #search-section {
-            flex-direction: row;
-        }
-    }
-
-
-  </style>
-</head>
-<body>
-  <div class="main-content">
-      <h1>ColorPedia</h1>
-      <p style="margin-top:-10px; margin-bottom: 20px;">Discover and explore a world of colors!</p>
-
-      <div id="search-section">
-        <input type="text" id="search-box" placeholder="Enter color name or hex (e.g., Sky Blue or #87CEEB)">
-        <button id="search-btn">Search</button>
-      </div>
-
-      <div id="color-display">
-        <p class="initial-message">Explore colors by searching above, or see a selection of our vibrant palette!</p>
-      </div>
-  </div> {/* Closing main-content div */}
-
-  <footer>
-    <p>Contact me:</p>
-    <p>
-      <a href="https://www.facebook.com/sobujis" target="_blank" rel="noopener noreferrer">Facebook</a> |
-      WhatsApp: +17162268360 |
-      Telegram: <a href="https://t.me/iamSobuj" target="_blank" rel="noopener noreferrer">@iamSobuj</a>
-    </p>
-    <p>&copy; <script>document.write(new Date().getFullYear())</script> ColorPedia. Powered by Sobuj Islam. All rights reserved.</p>
-    <button id="dark-mode-toggle" title="Toggle Dark Mode"> <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-      <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display:none;"><path d="M10 2c-1.82 0-3.53.5-5 1.35C7.99 5.08 10 8.3 10 12s-2.01 6.92-5 8.65C6.47 21.5 8.18 22 10 22c5.52 0 10-4.48 10-10S15.52 2 10 2z"/></svg>
-    </button>
-  </footer>
-
-  <script defer>
-    // Basic protection: Disable right-click context menu
-    document.addEventListener('contextmenu', function(event) {
-      event.preventDefault();
-    });
-
-    // Basic protection: Disable some common developer tool keyboard shortcuts
-    document.addEventListener('keydown', function(event) {
-      // F12
-      if (event.keyCode === 123) {
-        event.preventDefault();
-      }
-      // Ctrl+Shift+I
-      if (event.ctrlKey && event.shiftKey && event.keyCode === 73) {
-        event.preventDefault();
-      }
-      // Ctrl+Shift+J
-      if (event.ctrlKey && event.shiftKey && event.keyCode === 74) {
-        event.preventDefault();
-      }
-      // Ctrl+Shift+C
-      if (event.ctrlKey && event.shiftKey && event.keyCode === 67) {
-        event.preventDefault();
-      }
-      // Ctrl+U (View Source)
-      if (event.ctrlKey && event.keyCode === 85) {
-        event.preventDefault();
-      }
-    });
-
-    const copyIconSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>`;
-
-    const colorDatabase = [
-      // Reds
-      { name: "Indian Red", hex: "#CD5C5C" }, { name: "Light Coral", hex: "#F08080" },
-      { name: "Salmon", hex: "#FA8072" }, { name: "Dark Salmon", hex: "#E9967A" },
-      { name: "Light Salmon", hex: "#FFA07A" }, { name: "Crimson", hex: "#DC143C" },
-      { name: "Red", hex: "#FF0000" },
-      { name: "Matte Red", hex: "#B33F40" },
-      { name: "Glossy Red", hex: "#DD0004" },
-      { name: "Light Red", hex: "#c91100" },
-      { name: "Metallic Red", hex: "#B71C1C" }, { name: "Fire Brick", hex: "#B22222" },
-      { name: "Dark Red", hex: "#8B0000" },
-
-      // Pinks
-      { name: "Pink", hex: "#FFC0CB" }, { name: "Matte Pink", hex: "#EC407A" },
-      { name: "Metallic Pink", hex: "#AD1457" }, { name: "Light Pink", hex: "#FFB6C1" },
-      { name: "Hot Pink", hex: "#FF69B4" }, { name: "Deep Pink", hex: "#FF1493" },
-      { name: "Medium Violet Red", hex: "#C71585" }, { name: "Pale Violet Red", hex: "#DB7093" },
-      { name: "Soft Pink", hex: "#E89EB8" },
-
-      // Oranges
-      { name: "Coral", hex: "#FF7F50" }, { name: "Tomato", hex: "#FF6347" },
-      { name: "Orange Red", hex: "#FF4500" }, { name: "Dark Orange", hex: "#FF8C00" },
-      { name: "Orange", hex: "#FFA500" }, { name: "Matte Orange", hex: "#F57C00" },
-      { name: "Metallic Orange", hex: "#E65100" },
-
-      // Yellows
-      { name: "Gold", hex: "#FFD700" }, { name: "Yellow", hex: "#FFFF00" },
-      { name: "Matte Yellow", hex: "#FBC02D" }, { name: "Metallic Yellow", hex: "#F9A825" },
-      { name: "Light Yellow", hex: "#FFFFE0" }, { name: "Lemon Chiffon", hex: "#FFFACD" },
-      { name: "Papaya Whip", hex: "#FFEFD5" }, { name: "Moccasin", hex: "#FFE4B5" },
-      { name: "Peach Puff", hex: "#FFDAB9" }, { name: "Pale Goldenrod", hex: "#EEE8AA" },
-      { name: "Khaki", hex: "#F0E68C" }, { name: "Dark Khaki", hex: "#BDB76B" },
-
-      // Greens
-      { name: "Green Yellow", hex: "#ADFF2F" }, { name: "Chartreuse", hex: "#7FFF00" },
-      { name: "Lawn Green", hex: "#7CFC00" }, { name: "Lime", hex: "#00FF00" },
-      { name: "Matte Lime", hex: "#AFB42B" }, { name: "Metallic Lime", hex: "#827717" },
-      { name: "Lime Green", hex: "#32CD32" }, { name: "Pale Green", hex: "#98FB98" },
-      { name: "Light Green", hex: "#90EE90" }, { name: "Medium Spring Green", hex: "#00FA9A" },
-      { name: "Spring Green", hex: "#00FF7F" }, { name: "Medium Sea Green", hex: "#3CB371" },
-      { name: "Sea Green", hex: "#2E8B57" }, { name: "Forest Green", hex: "#228B22" },
-      { name: "Green", hex: "#008000" },
-      { name: "Matte Green", hex: "#48A14D" },
-      { name: "Metallic Green", hex: "#1B5E20" },
-      { name: "Dark Green", hex: "#006400" }, { name: "Yellow Green", hex: "#9ACD32" },
-      { name: "Olive Drab", hex: "#6B8E23" }, { name: "Olive", hex: "#808000" },
-      { name: "Dark Olive Green", hex: "#556B2F" }, { name: "Dark Sea Green", hex: "#8FBC8F" },
-      { name: "Light Sea Green", hex: "#20B2AA" }, { name: "Dark Cyan", hex: "#008B8B" },
-      { name: "Teal", hex: "#008080" },
-
-      // Cyans
-      { name: "Aqua", hex: "#00FFFF" }, { name: "Cyan", hex: "#00FFFF" },
-      { name: "Matte Cyan", hex: "#00ACC1" }, { name: "Metallic Cyan", hex: "#00838F" },
-      { name: "Light Cyan", hex: "#E0FFFF" }, { name: "Pale Turquoise", hex: "#AFEEEE" },
-      { name: "Aquamarine", hex: "#7FFFD4" }, { name: "Turquoise", hex: "#40E0D0" },
-      { name: "Medium Turquoise", hex: "#48D1CC" }, { name: "Dark Turquoise", hex: "#00CED1" },
-
-      // Blues
-      { name: "Cadet Blue", hex: "#5F9EA0" }, { name: "Steel Blue", hex: "#4682B4" },
-      { name: "Light Steel Blue", hex: "#B0C4DE" }, { name: "Powder Blue", hex: "#B0E0E6" },
-      { name: "Light Blue", hex: "#ADD8E6" }, { name: "Sky Blue", hex: "#87CEEB" },
-      { name: "Light Sky Blue", hex: "#87CEFA" }, { name: "Deep Sky Blue", hex: "#00BFFF" },
-      { name: "Dodger Blue", hex: "#1E90FF" }, { name: "Cornflower Blue", hex: "#6495ED" },
-      { name: "Medium Slate Blue", hex: "#7B68EE" }, { name: "Royal Blue", hex: "#4169E1" },
-      { name: "Blue", hex: "#0000FF" }, { name: "Matte Blue", hex: "#1976D2" },
-      { name: "Metallic Blue", hex: "#0D47A1" }, { name: "Medium Blue", hex: "#0000CD" },
-      { name: "Dark Blue", hex: "#00008B" }, { name: "Navy", hex: "#000080" },
-      { name: "Matte Navy", hex: "#283593" }, { name: "Metallic Navy", hex: "#1A237E" },
-      { name: "Midnight Blue", hex: "#191970" },
-      { name: "Brilliant Blue", hex: "#2752D6" },
-
-      // Purples, Violets, Magentas
-      { name: "Lavender", hex: "#E6E6FA" }, { name: "Thistle", hex: "#D8BFD8" },
-      { name: "Plum", hex: "#DDA0DD" }, { name: "Violet", hex: "#EE82EE" },
-      { name: "Matte Violet", hex: "#8658A5" },
-      { name: "Orchid", hex: "#DA70D6" }, { name: "Fuchsia", hex: "#FF00FF" },
-      { name: "Magenta", hex: "#FF00FF" }, { name: "Matte Magenta", hex: "#C2185B" },
-      { name: "Metallic Magenta", hex: "#880E4F" }, { name: "Medium Orchid", hex: "#BA55D3" },
-      { name: "Medium Purple", hex: "#9370DB" }, { name: "Rebecca Purple", hex: "#663399" },
-      { name: "Blue Violet", hex: "#8A2BE2" }, { name: "Dark Violet", hex: "#9400D3" },
-      { name: "Dark Orchid", hex: "#9932CC" }, { name: "Dark Magenta", hex: "#8B008B" },
-      { name: "Purple", hex: "#800080" }, { name: "Matte Purple", hex: "#7B1FA2" },
-      { name: "Metallic Purple", hex: "#4A148C" }, { name: "Indigo", hex: "#4B0082" },
-      { name: "Slate Blue", hex: "#6A5ACD" }, { name: "Dark Slate Blue", hex: "#483D8B" },
-      { name: "Matte Burgundy", hex: "#691C2D" },
-
-      // Browns
-      { name: "Cornsilk", hex: "#FFF8DC" }, { name: "Blanched Almond", hex: "#FFEBCD" },
-      { name: "Bisque", hex: "#FFE4C4" }, { name: "Navajo White", hex: "#FFDEAD" },
-      { name: "Wheat", hex: "#F5DEB3" }, { name: "Burly Wood", hex: "#DEB887" },
-      { name: "Tan", hex: "#D2B48C" }, { name: "Rosy Brown", hex: "#BC8F8F" },
-      { name: "Sandy Brown", hex: "#F4A460" }, { name: "Goldenrod", hex: "#DAA520" },
-      { name: "Dark Goldenrod", hex: "#B8860B" }, { name: "Peru", hex: "#CD853F" },
-      { name: "Chocolate", hex: "#D2691E" }, { name: "Saddle Brown", hex: "#8B4513" },
-      { name: "Sienna", hex: "#A0522D" }, { name: "Brown", hex: "#A52A2A" },
-      { name: "Matte Brown", hex: "#5D4037" }, { name: "Metallic Brown", hex: "#3E2723" },
-      { name: "Maroon", hex: "#800000" },
-
-      // Whites
-      { name: "White", hex: "#FFFFFF" },
-      { name: "Matte White", hex: "#e6e9e9" },
-      { name: "Metallic White", hex: "#ECEFF1" }, { name: "Snow", hex: "#FFFAFA" },
-      { name: "Honey Dew", hex: "#F0FFF0" }, { name: "Mint Cream", hex: "#F5FFFA" },
-      { name: "Azure", hex: "#F0FFFF" }, { name: "Alice Blue", hex: "#F0F8FF" },
-      { name: "Ghost White", hex: "#F8F8FF" }, { name: "White Smoke", hex: "#F5F5F5" },
-      { name: "Sea Shell", hex: "#FFF5EE" }, { name: "Beige", hex: "#F5F5DC" },
-      { name: "Old Lace", hex: "#FDF5E6" }, { name: "Floral White", hex: "#FFFAF0" },
-      { name: "Ivory", hex: "#FFFFF0" }, { name: "Antique White", hex: "#FAEBD7" },
-      { name: "Linen", hex: "#FAF0E6" }, { name: "Lavender Blush", hex: "#FFF0F5" },
-
-      // Grays and Blacks
-      { name: "Gainsboro", hex: "#DCDCDC" }, { name: "Light Gray", hex: "#D3D3D3" },
-      { name: "Silver", hex: "#C0C0C0" }, { name: "Dark Gray", hex: "#A9A9A9" },
-      { name: "Gray", hex: "#808080" }, { name: "Matte Gray", hex: "#757575" },
-      { name: "Metallic Gray", hex: "#616161" },
-      { name: "Silver Gray Metallic", hex: "#8A92A6" },
-      { name: "Dim Gray", hex: "#696969" },
-      { name: "Light Slate Gray", hex: "#778899" }, { name: "Slate Gray", hex: "#708090" },
-      { name: "Dark Slate Gray", hex: "#2F4F4F" }, { name: "Black", hex: "#000000" },
-      { name: "Matte Black", hex: "#28282B" },
-      { name: "Velvet Black", hex: "#231f20" },
-      { name: "Metallic Black", hex: "#424242" }
-    ];
-
-    const searchBoxElement = document.getElementById('search-box');
-    const searchBtnElement = document.getElementById('search-btn');
-    const colorDisplayElement = document.getElementById('color-display');
-    const darkModeToggleElement = document.getElementById('dark-mode-toggle');
-    const sunIconElement = document.getElementById('theme-icon-sun');
-    const moonIconElement = document.getElementById('theme-icon-moon');
-
-    // Constants for initial messages
-    const WELCOME_MESSAGE = "Welcome to ColorPedia! Here's a taste of our vibrant palette. Use the search bar above to find specific colors.";
-    const SEARCH_PROMPT_MESSAGE = "Enter a color name or hex code to start your search, or discover some of our featured colors below!";
-    const NO_COLORS_IN_DB_MESSAGE = "No colors available in the database currently. Please check back later!";
-
-
-    // Function to apply theme and update toggle button title
-    function applyTheme(theme) {
-      if (theme === 'dark') {
-        document.body.classList.add('dark-mode');
-        sunIconElement.style.display = 'none';
-        moonIconElement.style.display = 'block';
-        darkModeToggleElement.title = 'Switch to Light Mode'; 
-      } else {
-        document.body.classList.remove('dark-mode');
-        sunIconElement.style.display = 'block';
-        moonIconElement.style.display = 'none';
-        darkModeToggleElement.title = 'Switch to Dark Mode'; 
-      }
-    }
-
-    // Toggle dark mode
-    darkModeToggleElement.addEventListener('click', () => {
-      const isDarkMode = document.body.classList.toggle('dark-mode');
-      const newTheme = isDarkMode ? 'dark' : 'light';
-      applyTheme(newTheme);
-      localStorage.setItem('theme', newTheme);
-    });
-
-    // Function to render a single color card
-    function renderColorCard(name, hex) {
-      const properHex = hex.toUpperCase();
-      return `
-        <div class="color-card">
-          <div class="color-box" style="background: ${properHex}"></div>
-          <div class="color-info">
-            <strong>${name}</strong>
-            <div class="hex-container">
-              <span>${properHex}</span>
-              <button class="copy-hex-btn" data-hex="${properHex}" title="Copy hex code">
-                ${copyIconSVG}
-              </button>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
-    // Function to append initial sample color cards to the display
-    function appendInitialSampleCards() {
-        const sampleSize = 12;
-        const sampleColors = [];
-        const usedIndices = new Set();
-
-        if (colorDatabase.length === 0) {
-            return;
-        }
-
-        const effectiveSampleSize = Math.min(sampleSize, colorDatabase.length);
-        
-        if (colorDatabase.length <= effectiveSampleSize) {
-            sampleColors.push(...colorDatabase);
-        } else {
-            while(sampleColors.length < effectiveSampleSize) {
-                const randomIndex = Math.floor(Math.random() * colorDatabase.length);
-                if (!usedIndices.has(randomIndex)) {
-                    sampleColors.push(colorDatabase[randomIndex]);
-                    usedIndices.add(randomIndex);
-                }
-            }
-        }
-        
-        let cardsHtmlContent = '';
-        sampleColors.forEach(color => {
-            cardsHtmlContent += renderColorCard(color.name, color.hex);
-        });
-        colorDisplayElement.insertAdjacentHTML('beforeend', cardsHtmlContent);
-    }
-
-    // Function to display colors based on search results
-    function displayColors(colorsToDisplay) {
-      let htmlContent = '';
-      if (colorsToDisplay.length > 0) {
-        for (const color of colorsToDisplay) {
-          htmlContent += renderColorCard(color.name, color.hex);
-        }
-      } else {
-        htmlContent = '<p class="no-results">No matching color found. Try a different name or hex code.</p>';
-      }
-      colorDisplayElement.innerHTML = htmlContent; 
-    }
-    
-    // Function to perform search
-    function performSearch() {
-      const query = searchBoxElement.value.trim().toLowerCase();
-
-      if (query === "") {
-        colorDisplayElement.innerHTML = `<p class="initial-message">${SEARCH_PROMPT_MESSAGE}</p>`;
-        appendInitialSampleCards();
-        return;
-      }
-
-      const hexQuery = query.startsWith('#') ? query.substring(1) : query;
-      const filteredColors = colorDatabase.filter(color => {
-        const colorNameLower = color.name.toLowerCase();
-        const colorHexLower = color.hex.toLowerCase();
-        const cleanColorHex = colorHexLower.startsWith('#') ? colorHexLower.substring(1) : colorHexLower;
-        return colorNameLower.includes(query) || cleanColorHex.includes(hexQuery) || colorHexLower.includes(query);
-      });
-
-      displayColors(filteredColors); 
-    }
-
-    // Event listeners
-    searchBtnElement.addEventListener('click', performSearch);
-    searchBoxElement.addEventListener('keypress', function(event) {
-      if (event.key === 'Enter') {
-        performSearch();
-      }
-    });
-
-    colorDisplayElement.addEventListener('click', function(event) {
-      const target = event.target.closest('.copy-hex-btn');
-      if (target) {
-        const hexToCopy = target.dataset.hex;
-        navigator.clipboard.writeText(hexToCopy).then(() => {
-          target.innerHTML = 'Copied!';
-          target.classList.add('copied');
-          target.classList.remove('error');
-          target.disabled = true;  
-
-          setTimeout(() => {
-            target.innerHTML = copyIconSVG;
-            target.classList.remove('copied');
-            target.disabled = false;
-          }, 1500);
-        }).catch(err => {
-          console.error('Failed to copy hex: ', err);
-          target.innerHTML = 'Error';
-          target.classList.add('error');
-          target.classList.remove('copied');
-          target.disabled = true;
-            setTimeout(() => {
-            target.innerHTML = copyIconSVG;
-            target.classList.remove('error');
-            target.disabled = false;
-          }, 1500);
-        });
-      }
-    });
-
-    // Window onload actions
-    window.onload = () => {
-        // Set up initial theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-          applyTheme(savedTheme);
-        } else {
-          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            applyTheme('dark');
-          } else {
-            applyTheme('light'); 
-          }
-        }
-
-        let initialMessageElement = colorDisplayElement.querySelector('.initial-message');
-        if (!initialMessageElement) {
-            colorDisplayElement.innerHTML = `<p class="initial-message">${WELCOME_MESSAGE}</p>`;
-        } else {
-            initialMessageElement.innerHTML = WELCOME_MESSAGE;
-        }
-        
-        if (colorDatabase.length === 0) {
-            const msgElement = colorDisplayElement.querySelector('.initial-message');
-            if (msgElement) {
-                msgElement.innerHTML = NO_COLORS_IN_DB_MESSAGE;
-            }
-        } else {
-            appendInitialSampleCards(); 
-        }
-    };
-
-  </script>
-</body>
-</html>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>ColorPedia - Find Your Perfect Color & Hex Code</title>
-  <meta name="description" content="ColorPedia: Your ultimate guide to discovering, searching, and exploring a vast collection of color names and their hex codes. Find the perfect color for your design projects, websites, and art. Features dark mode and neon effects.">
-  <meta name="keywords" content="color, hex code, color names, color picker, web colors, design, palette, ColorPedia, color search, HTML colors, CSS colors, RGB values, color converter, UI design, UX design, graphic design, color theory, glassmorphism, dark mode, neon effect, frontend development, color tools">
-  <meta name="author" content="Sobuj Islam">
-  <meta name="robots" content="index, follow"> <meta property="og:title" content="ColorPedia - Discover & Search Colors with Hex Codes">
-  <meta property="og:description" content="Explore a comprehensive database of colors, find hex codes, and get inspired for your next project with ColorPedia.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.yourwebsite.com/colorpedia"> <meta property="og:image" content="https://www.yourwebsite.com/colorpedia-preview.jpg"> <meta property="og:image:alt" content="ColorPedia Interface showing color cards">
-  <meta property="og:site_name" content="ColorPedia">
-  <meta property="og:locale" content="en_US">
-
-  <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:title" content="ColorPedia - Your Go-To Color & Hex Code Finder">
-  <meta name="twitter:description" content="Quickly search and discover color names and hex codes with ColorPedia. Perfect for designers and developers.">
-  <meta name="twitter:image" content="https://www.yourwebsite.com/colorpedia-twitter-card.jpg"> <meta name="twitter:image:alt" content="A vibrant display of color swatches from ColorPedia">
-  <style>
-    :root {
-      /* Light Mode Variables */
-      --bg-gradient: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-      --text-primary: #333;
-      --text-secondary: #555;
-      --header-color: #2c3e50;
       --search-section-bg: rgba(255, 255, 255, 0.15);
       --search-section-border: rgba(255, 255, 255, 0.2);
       --search-section-shadow: 0 6px 20px rgba(31, 38, 135, 0.1);
@@ -927,14 +56,13 @@
       --message-border: rgba(255, 255, 255, 0.2);
       --message-text: #5a6870;
 
-      /* Updated Footer Variables for Light Mode Neon Effect */
-      --footer-bg: rgba(255, 255, 255, 0.1); /* More translucent */
-      --footer-border-top: transparent; /* Will be handled by neon glow */
-      --footer-text: #4a5568; /* Adjusted for better contrast on lighter glass */
+      --footer-bg: rgba(255, 255, 255, 0.1);
+      --footer-border-top: transparent;
+      --footer-text: #4a5568;
       --footer-link: #007bff;
       --footer-link-hover: #0056b3;
       --footer-neon-glow-color: rgba(0, 123, 255, 0.55);
-      --footer-base-shadow-for-neon: 0 -2px 8px rgba(0,0,0,0.07); /* Subtle base for neon */
+      --footer-base-shadow-for-neon: 0 -2px 8px rgba(0,0,0,0.07);
 
       --toggle-bg: #555;
       --toggle-icon-fill: #fff;
@@ -945,7 +73,12 @@
       --bg-gradient: linear-gradient(135deg, #232526, #414345);
       --text-primary: #e0e0e0;
       --text-secondary: #b0b0b0;
-      --header-color: #e0e0e0;
+
+      /* H1 Neon Effect Variables - Dark Mode (White Neon) */
+      --h1-text-color: #FFFFFF; /* White text */
+      --h1-neon-glow-color: rgba(255, 255, 255, 0.7); /* White glow */
+      --h1-neon-glow-color-outer: rgba(255, 255, 255, 0.5); /* Softer white glow */
+      
       --search-section-bg: rgba(0, 0, 0, 0.2);
       --search-section-border: rgba(255, 255, 255, 0.1);
       --search-section-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
@@ -972,14 +105,13 @@
       --message-border: rgba(255, 255, 255, 0.1);
       --message-text: #b0b0b0;
 
-      /* Updated Footer Variables for Dark Mode Neon Effect */
-      --footer-bg: rgba(10, 10, 20, 0.15); /* More translucent */
-      --footer-border-top: transparent; /* Will be handled by neon glow */
-      --footer-text: #cbd5e0; /* Adjusted for dark glass */
-      --footer-link: #17a2b8; /* Using a brighter link color for dark mode */
-      --footer-link-hover: #20c997; /* Adjusted hover */
+      --footer-bg: rgba(10, 10, 20, 0.15);
+      --footer-border-top: transparent;
+      --footer-text: #cbd5e0;
+      --footer-link: #17a2b8;
+      --footer-link-hover: #20c997;
       --footer-neon-glow-color: rgba(23, 162, 184, 0.7);
-      --footer-base-shadow-for-neon: 0 -2px 8px rgba(0,0,0,0.25); /* Subtle base for neon */
+      --footer-base-shadow-for-neon: 0 -2px 8px rgba(0,0,0,0.25);
       
       --toggle-bg: #ccc;
       --toggle-icon-fill: #333;
@@ -989,68 +121,77 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: var(--bg-gradient);
       margin: 0;
-      padding: 20px;
+      padding: 15px;
       text-align: center;
       color: var(--text-primary);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       transition: background 0.3s ease, color 0.3s ease;
-      /* Basic protection: Disable text selection */
       user-select: none;
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
+      box-sizing: border-box;
     }
     h1 {
-      color: var(--header-color);
-      font-size: 3.5em;
-      margin-bottom: 15px;
+      color: var(--h1-text-color); /* Updated to use CSS variable for theme-based color */
+      font-size: 2.5em;
+      margin-bottom: 10px;
       font-weight: 600;
-      letter-spacing: -1px;
+      letter-spacing: -0.5px;
+      cursor: pointer;
+      text-shadow:
+        0 0 4px var(--h1-neon-glow-color),
+        0 0 8px var(--h1-neon-glow-color),
+        0 0 12px var(--h1-neon-glow-color-outer);
+      transition: text-shadow 0.3s ease, color 0.3s ease; /* Added color transition */
     }
-    p { /* General paragraph styling */
+    p {
       color: var(--text-secondary);
+      font-size: 0.95em;
+      line-height: 1.5;
     }
 
-    /* Modern Search Section Styles with Neon Effect */
     #search-section {
-      margin: 30px auto;
+      margin: 20px auto;
       display: flex; 
-      gap: 8px; 
-      align-items: center; 
+      flex-direction: column;
+      gap: 10px;
+      align-items: stretch;
       max-width: 650px;
-      width: 90%;
+      width: 100%;
       background: var(--search-section-bg);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border-radius: 20px; 
-      padding: 5px; 
+      border-radius: 15px;
+      padding: 15px;
       border: 1px solid transparent; 
       box-shadow:
         var(--search-section-shadow), 
-        0 0 10px var(--search-neon-glow-color), 
-        0 0 20px var(--search-neon-glow-color), 
-        0 0 30px var(--search-neon-glow-color); 
+        0 0 8px var(--search-neon-glow-color),
+        0 0 15px var(--search-neon-glow-color), 
+        0 0 20px var(--search-neon-glow-color); 
       transition: background 0.3s ease, box-shadow 0.3s ease;
+      box-sizing: border-box;
     }
 
     #search-box {
-      padding: 18px 22px;
+      padding: 15px 18px;
       flex-grow: 1; 
-      font-size: 1.1em;
+      font-size: 1em;
       border: 1px solid var(--search-box-border); 
-      border-radius: 18px; 
+      border-radius: 12px;
       outline: none;
       box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
       transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s ease;
       background-color: var(--search-box-bg);
       color: var(--search-box-text);
-       /* Allow text selection in input fields */
       user-select: auto;
       -webkit-user-select: auto;
       -moz-user-select: auto;
       -ms-user-select: auto;
+      width: auto;
     }
     #search-box::placeholder {
         color: var(--search-box-placeholder);
@@ -1064,31 +205,31 @@
     }
 
     #search-btn {
-      padding: 18px 28px;
-      font-size: 1.1em;
+      padding: 15px 20px;
+      font-size: 1em;
       border: 1px solid var(--search-btn-bg); 
       background-color: var(--search-btn-bg);
       color: var(--search-btn-text);
-      border-radius: 18px; 
+      border-radius: 12px;
       cursor: pointer;
       transition: background-color 0.3s, transform 0.2s, border-color 0.3s;
       font-weight: 500;
       flex-shrink: 0; 
+      width: 100%;
     }
     #search-btn:hover {
       background-color: var(--search-btn-hover-bg);
       border-color: var(--search-btn-hover-bg);
       transform: translateY(-1px);
     }
-    /* End of Modern Search Section Styles */
 
     #color-display {
-      margin-top: 30px;
+      margin-top: 25px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-      padding-bottom: 100px; 
+      gap: 15px;
+      padding-bottom: 80px; /* Increased padding to avoid overlap with potentially taller footer */
       flex-grow: 1;
     }
     .color-card {
@@ -1096,54 +237,57 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--card-border);
-      padding: 15px;
+      padding: 12px;
       margin: 0;  
-      border-radius: 12px;
-      width: 180px;  
+      border-radius: 10px;
+      width: calc(50% - 10px);
+      max-width: 160px;
       box-shadow: var(--card-shadow);
       transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
       display: flex;
       flex-direction: column;
       text-align: left;
+      box-sizing: border-box;
     }
     .color-card:hover {
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       background: var(--card-hover-bg);
     }
     .color-box {
-      height: 70px;  
-      border-radius: 8px;
-      margin-bottom: 12px;
+      height: 60px;
+      border-radius: 6px;
+      margin-bottom: 10px;
       border: 1px solid rgba(0,0,0,0.05);  
     }
     .color-info {
-      font-size: 0.9em;
+      font-size: 0.85em;
     }
     .color-info strong {
-      font-size: 1.05em;
+      font-size: 1em;
       color: var(--card-text-strong);
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
     .color-info .hex-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-top: 4px;
+      margin-top: 3px;
     }
     .color-info .hex-container span {
       color: var(--card-text-hex);
       font-family: 'Courier New', Courier, monospace;
-      font-size:0.95em;
+      font-size:0.9em;
+      word-break: break-all;
     }
     .copy-hex-btn {
       background: var(--copy-btn-bg);
       border: 1px solid var(--copy-btn-border);
       border-radius: 4px;
       cursor: pointer;
-      padding: 4px 6px;  
-      margin-left: 8px;
+      padding: 3px 5px;
+      margin-left: 5px;
       line-height: 1;  
       transition: background-color 0.2s, color 0.2s, border-color 0.2s;
       display: flex;
@@ -1153,8 +297,8 @@
     .copy-hex-btn svg {
       fill: var(--copy-btn-icon-fill);
       display: block;  
-      width: 14px;
-      height: 14px;
+      width: 12px;
+      height: 12px;
     }
     .copy-hex-btn:hover {
       background-color: rgba(223, 228, 231, 0.9);
@@ -1168,8 +312,8 @@
       background-color: #2ecc71;  
       color: white;
       border-color: #27ae60;
-      font-size: 0.8em;
-      padding: 5px 6px;
+      font-size: 0.75em;
+      padding: 4px 5px;
     }
     .copy-hex-btn.copied svg {
       display: none;
@@ -1178,55 +322,55 @@
       background-color: #e74c3c;
       color: white;
       border-color: #c0392b;
-      font-size: 0.8em;
-      padding: 5px 6px;
+      font-size: 0.75em;
+      padding: 4px 5px;
     }
     .copy-hex-btn.error svg {
       display: none;
     }
 
     .no-results, .initial-message {
-      font-size: 1.2em;
+      font-size: 1em;
       color: var(--message-text);
-      margin-top: 30px; 
+      margin-top: 20px;
       width: 100%; 
       background: var(--message-bg);
       backdrop-filter: blur(5px);
       -webkit-backdrop-filter: blur(5px);
-      padding: 15px;
+      padding: 12px;
       border-radius: 8px;
       border: 1px solid var(--message-border);
       box-sizing: border-box; 
     }
      .initial-message { 
-        margin-bottom: 20px; 
+        margin-bottom: 15px;
     }
 
-
-    /* Modern Footer Styles with Neon Effect */
     footer {
       background: var(--footer-bg);
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
       border: 1px solid transparent; 
       color: var(--footer-text);
-      padding: 20px 25px; 
+      padding: 15px 20px;
+      padding-bottom: 60px; /* Increased padding to accommodate scroll-to-top button below toggle */
       margin-top: auto;  
-      font-size: 0.9em;
+      font-size: 0.85em;
       width: 100%;
       box-sizing: border-box;
-      border-radius: 20px 20px 0 0; 
-      position: relative;
+      border-radius: 15px 15px 0 0;
+      position: relative; /* Important for absolute positioning of child buttons */
       transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
       box-shadow:
         var(--footer-base-shadow-for-neon), 
-        0 0 10px var(--footer-neon-glow-color), 
-        0 0 20px var(--footer-neon-glow-color),
-        0 0 30px var(--footer-neon-glow-color);
+        0 0 8px var(--footer-neon-glow-color),
+        0 0 15px var(--footer-neon-glow-color),
+        0 0 20px var(--footer-neon-glow-color);
     }
     footer p {
-      margin: 8px 0;
+      margin: 6px 0;
       color: var(--footer-text); 
+      line-height: 1.4;
     }
     footer a {
       color: var(--footer-link);
@@ -1236,7 +380,7 @@
     }
     footer a:hover {
       color: var(--footer-link-hover);
-      text-shadow: 0 0 6px var(--footer-link-hover-shadow, rgba(130, 192, 230, 0.5));
+      text-shadow: 0 0 5px var(--footer-link-hover-shadow, rgba(130, 192, 230, 0.5));
     }
     body.dark-mode footer a:hover {
         --footer-link-hover-shadow: rgba(169, 214, 245, 0.6); 
@@ -1244,31 +388,164 @@
 
     #dark-mode-toggle {
       position: absolute;
-      top: 20px;
-      right: 25px;
+      top: 15px;
+      right: 15px;
       background: var(--toggle-bg);
       color: var(--toggle-icon-fill); 
       border: none;
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
       transition: background-color 0.3s ease, transform 0.2s ease;
+      z-index: 1001; /* Ensure it's above scroll-to-top if overlapping during transitions */
     }
     #dark-mode-toggle:hover {
-      transform: scale(1.1);
+      transform: scale(1.08);
     }
     #dark-mode-toggle svg {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       fill: var(--toggle-icon-fill); 
       transition: fill 0.3s ease;
     }
-    /* End of Modern Footer Styles */
+
+    /* Scroll to Top Button Styles */
+    #scroll-to-top-btn {
+      position: absolute;
+      top: 60px; /* Positioned below the dark mode toggle */
+      right: 15px; /* Aligned with the dark mode toggle */
+      background: var(--toggle-bg);
+      color: var(--toggle-icon-fill);
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+      transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease, visibility 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1000;
+    }
+    #scroll-to-top-btn.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    #scroll-to-top-btn:hover {
+      transform: scale(1.08);
+    }
+    #scroll-to-top-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--toggle-icon-fill);
+    }
+
+
+    /* Media Queries for Responsiveness */
+    @media (min-width: 380px) {
+        .color-card {
+            width: calc(50% - 10px);
+        }
+    }
+
+    @media (min-width: 600px) {
+      body {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 3em;
+      }
+      #search-section {
+        flex-direction: row;
+        gap: 8px;
+        padding: 5px;
+        align-items: center;
+      }
+      #search-box {
+        font-size: 1.1em;
+        padding: 18px 22px;
+        border-radius: 18px;
+      }
+      #search-btn {
+        font-size: 1.1em;
+        padding: 18px 28px;
+        border-radius: 18px;
+        width: auto;
+      }
+      .color-card {
+        width: calc(33.333% - 14px);
+        max-width: 180px;
+         padding: 15px;
+         border-radius: 12px;
+      }
+       .color-box {
+          height: 70px;
+          border-radius: 8px;
+          margin-bottom: 12px;
+      }
+      .color-info {
+        font-size: 0.9em;
+      }
+      .color-info strong {
+        font-size: 1.05em;
+      }
+      .copy-hex-btn svg {
+        width: 14px;
+        height: 14px;
+      }
+      .no-results, .initial-message {
+        font-size: 1.2em;
+      }
+      footer {
+        font-size: 0.9em;
+        padding: 20px 25px;
+        padding-bottom: 70px; /* Ensure space for buttons on larger screens too */
+        border-radius: 20px 20px 0 0;
+      }
+      #dark-mode-toggle {
+        top: 20px;
+        right: 25px;
+        width: 40px;
+        height: 40px;
+      }
+      #dark-mode-toggle svg {
+        width: 20px;
+        height: 20px;
+      }
+      #scroll-to-top-btn {
+        top: 70px; /* Adjusted for larger toggle button and spacing */
+        right: 25px;
+        width: 40px;
+        height: 40px;
+      }
+      #scroll-to-top-btn svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    @media (min-width: 992px) {
+      h1 {
+        font-size: 3.5em;
+      }
+      .color-card {
+        width: calc(25% - 15px);
+      }
+    }
+     @media (min-width: 1200px) {
+      .color-card {
+        width: calc(20% - 16px);
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1292,43 +569,58 @@
       Telegram: <a href="https://t.me/iamSobuj" target="_blank" rel="noopener noreferrer">@iamSobuj</a>
     </p>
     <p>&copy; <script>document.write(new Date().getFullYear())</script> ColorPedia. Powered by Sobuj Islam. All rights reserved.</p>
-    <button id="dark-mode-toggle" title="Toggle Dark Mode"> <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+    
+    <button id="dark-mode-toggle" title="Toggle Dark Mode">
+      <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
       <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display:none;"><path d="M10 2c-1.82 0-3.53.5-5 1.35C7.99 5.08 10 8.3 10 12s-2.01 6.92-5 8.65C6.47 21.5 8.18 22 10 22c5.52 0 10-4.48 10-10S15.52 2 10 2z"/></svg>
+    </button>
+
+    <button id="scroll-to-top-btn" title="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M0 0h24v24H0V0z" fill="none"/>
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6 1.41 1.41z"/>
+        </svg>
     </button>
   </footer>
 
   <script defer>
+    // IMPORTANT NOTE ON CODE PROTECTION:
+    // The commented-out methods below (like disabling right-click or keyboard shortcuts)
+    // are simple deterrents and can be easily bypassed by users with technical knowledge
+    // (e.g., using browser developer tools). True client-side code "encryption" or
+    // "protection" that makes code completely unreadable or unstealable by the client (browser)
+    // is not practically achievable for HTML, CSS, and JavaScript. The browser needs the
+    // raw code to interpret and run the page. For sensitive logic or data, always prioritize
+    // server-side processing and validation.
+
     // Basic protection: Disable right-click context menu
-    document.addEventListener('contextmenu', function(event) {
-      event.preventDefault();
-    });
+    // document.addEventListener('contextmenu', function(event) {
+    //   event.preventDefault();
+    // });
 
     // Basic protection: Disable some common developer tool keyboard shortcuts
-    document.addEventListener('keydown', function(event) {
-      // F12
-      if (event.keyCode === 123) {
-        event.preventDefault();
-      }
-      // Ctrl+Shift+I
-      if (event.ctrlKey && event.shiftKey && event.keyCode === 73) {
-        event.preventDefault();
-      }
-      // Ctrl+Shift+J
-      if (event.ctrlKey && event.shiftKey && event.keyCode === 74) {
-        event.preventDefault();
-      }
-      // Ctrl+Shift+C
-      if (event.ctrlKey && event.shiftKey && event.keyCode === 67) {
-        event.preventDefault();
-      }
-      // Ctrl+U (View Source)
-      if (event.ctrlKey && event.keyCode === 85) {
-        event.preventDefault();
-      }
-    });
-    // It's important to note that these client-side protections are deterrents
-    // and can be bypassed by users with sufficient technical knowledge.
-    // They do not offer true security for your code.
+    // document.addEventListener('keydown', function(event) {
+    //   // F12
+    //   if (event.keyCode === 123) {
+    //     event.preventDefault();
+    //   }
+    //   // Ctrl+Shift+I
+    //   if (event.ctrlKey && event.shiftKey && event.keyCode === 73) {
+    //     event.preventDefault();
+    //   }
+    //   // Ctrl+Shift+J
+    //   if (event.ctrlKey && event.shiftKey && event.keyCode === 74) {
+    //     event.preventDefault();
+    //   }
+    //   // Ctrl+Shift+C
+    //   if (event.ctrlKey && event.shiftKey && event.keyCode === 67) {
+    //     event.preventDefault();
+    //   }
+    //   // Ctrl+U (View Source)
+    //   if (event.ctrlKey && event.keyCode === 85) {
+    //     event.preventDefault();
+    //   }
+    // });
 
     const copyIconSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>`;
 
@@ -1462,29 +754,27 @@
     const darkModeToggleElement = document.getElementById('dark-mode-toggle');
     const sunIconElement = document.getElementById('theme-icon-sun');
     const moonIconElement = document.getElementById('theme-icon-moon');
+    const siteTitleElement = document.querySelector('h1');
+    const scrollToTopBtnElement = document.getElementById('scroll-to-top-btn'); // Get scroll to top button
 
-    // Constants for initial messages
     const WELCOME_MESSAGE = "Welcome to ColorPedia! Here's a taste of our vibrant palette. Use the search bar above to find specific colors.";
     const SEARCH_PROMPT_MESSAGE = "Enter a color name or hex code to start your search, or discover some of our featured colors below!";
     const NO_COLORS_IN_DB_MESSAGE = "No colors available in the database currently. Please check back later!";
 
-
-    // Function to apply theme and update toggle button title
     function applyTheme(theme) {
       if (theme === 'dark') {
         document.body.classList.add('dark-mode');
         sunIconElement.style.display = 'none';
         moonIconElement.style.display = 'block';
-        darkModeToggleElement.title = 'Switch to Light Mode'; // Update title
+        darkModeToggleElement.title = 'Switch to Light Mode';
       } else {
         document.body.classList.remove('dark-mode');
         sunIconElement.style.display = 'block';
         moonIconElement.style.display = 'none';
-        darkModeToggleElement.title = 'Switch to Dark Mode'; // Update title
+        darkModeToggleElement.title = 'Switch to Dark Mode';
       }
     }
 
-    // Toggle dark mode
     darkModeToggleElement.addEventListener('click', () => {
       const isDarkMode = document.body.classList.toggle('dark-mode');
       const newTheme = isDarkMode ? 'dark' : 'light';
@@ -1492,7 +782,6 @@
       localStorage.setItem('theme', newTheme);
     });
 
-    // Function to render a single color card
     function renderColorCard(name, hex) {
       const properHex = hex.toUpperCase();
       return `
@@ -1511,7 +800,6 @@
       `;
     }
 
-    // Function to append initial sample color cards to the display
     function appendInitialSampleCards() {
         const sampleSize = 12;
         const sampleColors = [];
@@ -1539,11 +827,9 @@
         sampleColors.forEach(color => {
             cardsHtmlContent += renderColorCard(color.name, color.hex);
         });
-        // Append the generated card HTML to the color display area
         colorDisplayElement.insertAdjacentHTML('beforeend', cardsHtmlContent);
     }
 
-    // Function to display colors based on search results
     function displayColors(colorsToDisplay) {
       let htmlContent = '';
       if (colorsToDisplay.length > 0) {
@@ -1551,24 +837,20 @@
           htmlContent += renderColorCard(color.name, color.hex);
         }
       } else {
-        // This message is shown when a search yields no results.
         htmlContent = '<p class="no-results">No matching color found. Try a different name or hex code.</p>';
       }
-      colorDisplayElement.innerHTML = htmlContent; // Overwrites previous content (e.g., initial message or old results)
+      colorDisplayElement.innerHTML = htmlContent;
     }
     
-    // Function to perform search
     function performSearch() {
       const query = searchBoxElement.value.trim().toLowerCase();
 
       if (query === "") {
-        // If search query is empty, display the search prompt message and initial sample cards
         colorDisplayElement.innerHTML = `<p class="initial-message">${SEARCH_PROMPT_MESSAGE}</p>`;
         appendInitialSampleCards();
         return;
       }
 
-      // If there's a query, filter colors
       const hexQuery = query.startsWith('#') ? query.substring(1) : query;
       const filteredColors = colorDatabase.filter(color => {
         const colorNameLower = color.name.toLowerCase();
@@ -1577,16 +859,21 @@
         return colorNameLower.includes(query) || cleanColorHex.includes(hexQuery) || colorHexLower.includes(query);
       });
 
-      displayColors(filteredColors); // Display the filtered results or "no results" message
+      displayColors(filteredColors);
     }
 
-    // Event listeners
     searchBtnElement.addEventListener('click', performSearch);
     searchBoxElement.addEventListener('keypress', function(event) {
       if (event.key === 'Enter') {
         performSearch();
       }
     });
+
+    if (siteTitleElement) {
+        siteTitleElement.addEventListener('click', () => {
+            window.location.reload();
+        });
+    }
 
     colorDisplayElement.addEventListener('click', function(event) {
       const target = event.target.closest('.copy-hex-btn');
@@ -1618,39 +905,48 @@
       }
     });
 
-    // Window onload actions
+    // Scroll to Top Button Functionality
+    if (scrollToTopBtnElement) {
+        window.onscroll = function() {
+          if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            scrollToTopBtnElement.classList.add('visible');
+          } else {
+            scrollToTopBtnElement.classList.remove('visible');
+          }
+        };
+
+        scrollToTopBtnElement.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+
     window.onload = () => {
-        // Set up initial theme
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
           applyTheme(savedTheme);
         } else {
-          // Default to light theme or check system preference for dark mode
           if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             applyTheme('dark');
           } else {
-            applyTheme('light'); // Default light
+            applyTheme('light');
           }
         }
 
-        // Set up initial message and display sample colors
         let initialMessageElement = colorDisplayElement.querySelector('.initial-message');
         if (!initialMessageElement) {
-            // This case should ideally not be hit if HTML is correct, but it's a fallback.
             colorDisplayElement.innerHTML = `<p class="initial-message">${WELCOME_MESSAGE}</p>`;
         } else {
-            // Update the existing initial message text.
             initialMessageElement.innerHTML = WELCOME_MESSAGE;
         }
         
-        // If the color database is empty, modify the welcome message.
         if (colorDatabase.length === 0) {
             const msgElement = colorDisplayElement.querySelector('.initial-message');
             if (msgElement) {
                 msgElement.innerHTML = NO_COLORS_IN_DB_MESSAGE;
             }
         } else {
-            appendInitialSampleCards(); // Append sample cards if DB is not empty
+            appendInitialSampleCards();
         }
     };
 
