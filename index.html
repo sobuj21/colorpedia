@@ -427,6 +427,7 @@
       width: 100%;
       box-sizing: border-box;
       text-align: left;
+      min-height: 380px; /* CLS Fix: Added min-height for the section */
     }
     .tool-section h2 {
       color: var(--h1-text-color);
@@ -450,6 +451,7 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
+      min-height: 70px; /* CLS Fix: Added min-height for control groups */
     }
     .gradient-controls label {
       color: var(--text-secondary);
@@ -895,8 +897,9 @@
       .color-info strong { font-size: 1.05em; }
       .copy-hex-btn svg { width: 14px; height: 14px; }
       .no-results, .initial-message { font-size: 1.2em; }
-      .tool-section { padding: 25px 30px; }
+      .tool-section { padding: 25px 30px; min-height: 320px; /* CLS Fix: Adjusted for larger screens */ }
       .tool-section h2 { font-size: 2em; }
+      .gradient-controls div { min-height: 75px; /* CLS Fix: Adjusted for larger screens */ }
       footer { font-size: 0.9em; padding: 20px 25px; padding-bottom: 70px; border-radius: 20px; }
       #dark-mode-toggle { top: 20px; right: 25px; width: 40px; height: 40px; }
       #dark-mode-toggle svg { width: 20px; height: 20px; }
@@ -1692,7 +1695,6 @@
 
     // --- RIGHT-CLICK PROTECTION ---
     document.addEventListener('contextmenu', function(event) {
-        // Allow right-click on specific input/textarea elements and color pickers
         const targetElement = event.target;
         const allowedSelectors = [
             '#search-box',
@@ -1702,10 +1704,10 @@
         ];
 
         if (allowedSelectors.some(selector => targetElement.matches(selector)) || 
-            targetElement.closest('input[type="color"]')) { // Also allow for color input's own UI
-            return; // Do not prevent default context menu
+            targetElement.closest('input[type="color"]')) { 
+            return; 
         }
-        event.preventDefault(); // Prevent context menu for all other elements
+        event.preventDefault(); 
     });
 
 
