@@ -40,9 +40,8 @@
       --search-box-focus-border: #007bff;
       --search-box-focus-bg: rgba(255, 255, 255, 0.7);
       
-      /* Updated for better contrast */
-      --search-btn-bg: #0056b3; /* Darker blue */
-      --search-btn-hover-bg: #004494; /* Even darker blue for hover */
+      --search-btn-bg: #0056b3; 
+      --search-btn-hover-bg: #004494; 
       --search-btn-text: white;
 
       --card-bg: rgba(255, 255, 255, 0.3);
@@ -69,7 +68,6 @@
       --toggle-bg: #555;
       --toggle-icon-fill: #fff;
 
-      /* Modal Variables - Light */
       --modal-bg: #ffffff;
       --modal-text-primary: #333;
       --modal-text-secondary: #555;
@@ -82,7 +80,7 @@
       --status-pass-color: #28a745;
       --status-fail-color: #dc3545;
       --export-btn-bg: #e9ecef;
-      --export-btn-text: #212529; /* Darker text for better contrast */
+      --export-btn-text: #212529; 
       --export-btn-hover-bg: #dee2e6;
     }
 
@@ -106,10 +104,9 @@
       --search-box-focus-border: #17a2b8;
       --search-box-focus-bg: rgba(0, 0, 0, 0.35);
 
-      /* Updated for better contrast */
-      --search-btn-bg: #107E8F; /* Darker cyan */
-      --search-btn-hover-bg: #0C6776; /* Even darker cyan for hover */
-      --search-btn-text: #FFFFFF; /* Explicit white text */
+      --search-btn-bg: #107E8F; 
+      --search-btn-hover-bg: #0C6776; 
+      --search-btn-text: #FFFFFF; 
       
       --card-bg: rgba(40, 40, 40, 0.4);
       --card-border: rgba(255, 255, 255, 0.1);
@@ -134,7 +131,6 @@
       --toggle-bg: #ccc;
       --toggle-icon-fill: #333;
 
-      /* Modal Variables - Dark */
       --modal-bg: #2c3340; 
       --modal-text-primary: #e0e0e0;
       --modal-text-secondary: #b0b0b0;
@@ -147,7 +143,7 @@
       --status-pass-color: #34D399; 
       --status-fail-color: #F87171; 
       --export-btn-bg: #374151;
-      --export-btn-text: #d1d5db; /* This already has good contrast */
+      --export-btn-text: #d1d5db; 
       --export-btn-hover-bg: #4b5563;
     }
 
@@ -267,7 +263,7 @@
         background-color: rgba(255,255,255,0.1);
     }
 
-    #search-btn { /* Removed #random-color-btn from this rule */
+    #search-btn {
       padding: 15px 20px;
       font-size: 1em;
       border: 1px solid var(--search-btn-bg);  
@@ -280,7 +276,7 @@
       flex-shrink: 0;  
       width: 100%; 
     }
-    #search-btn:hover { /* Removed #random-color-btn from this rule */
+    #search-btn:hover {
       background-color: var(--search-btn-hover-bg);
       border-color: var(--search-btn-hover-bg);
       transform: translateY(-1px);
@@ -882,130 +878,43 @@
     }
 
     @media (min-width: 380px) {
-        /* No specific changes needed here now */
+        /* No specific changes */
     }
 
     @media (min-width: 600px) {
-      body {
-        padding: 20px;
-      }
-      h1 {
-        font-size: 3em;
-      }
-      #search-section {
-        flex-direction: row; 
-        gap: 12px; 
-        padding: 10px 15px; 
-        align-items: center; 
-      }
-      #search-box {
-        font-size: 1.1em;
-        padding: 18px 22px;
-        padding-right: 48px; 
-        border-radius: 18px;
-      }
-      #paste-btn {
-          right: 8px;
-          padding: 7px;
-      }
-      #paste-btn svg {
-          width: 18px;
-          height: 18px;
-      }
-
-      #search-btn { /* Removed #random-color-btn */
-        font-size: 1.1em;
-        padding: 18px 25px; 
-        border-radius: 18px;
-        width: auto; 
-      }
-
-      .color-card {
-        width: calc(33.333% - 14px); 
-        max-width: 180px;
-        padding: 15px;
-        border-radius: 12px;
-      }
-      .color-box {
-          height: 70px;
-          border-radius: 8px;
-          margin-bottom: 12px;
-      }
-      .color-info {
-        font-size: 0.9em;
-      }
-      .color-info strong {
-        font-size: 1.05em;
-      }
-      .copy-hex-btn svg { 
-        width: 14px;
-        height: 14px;
-      }
-      .no-results, .initial-message {
-        font-size: 1.2em;
-      }
-      .tool-section { 
-        padding: 25px 30px;
-      }
-      .tool-section h2 {
-        font-size: 2em;
-      }
-      footer {
-        font-size: 0.9em;
-        padding: 20px 25px;
-        padding-bottom: 70px; 
-        border-radius: 20px; 
-      }
-      #dark-mode-toggle {
-        top: 20px;
-        right: 25px;
-        width: 40px;
-        height: 40px;
-      }
-      #dark-mode-toggle svg {
-        width: 20px;
-        height: 20px;
-      }
-      #scroll-to-top-btn {
-        top: 70px; 
-        right: 25px;
-        width: 40px;
-        height: 40px;
-      }
-      #scroll-to-top-btn svg {
-        width: 20px;
-        height: 20px;
-      }
-      .modal-content { 
-        padding: 25px 30px; 
-      }
-      .modal-color-swatch {
-        height: 120px; 
-      }
-       .modal-content h2 {
-        font-size: 1.8em;
-      }
-      .palette-swatch-item .palette-color-box {
-        width: 60px;
-        height: 60px;
-      }
+      body { padding: 20px; }
+      h1 { font-size: 3em; }
+      #search-section { flex-direction: row; gap: 12px; padding: 10px 15px; align-items: center; }
+      #search-box { font-size: 1.1em; padding: 18px 22px; padding-right: 48px; border-radius: 18px;}
+      #paste-btn { right: 8px; padding: 7px; }
+      #paste-btn svg { width: 18px; height: 18px; }
+      #search-btn { font-size: 1.1em; padding: 18px 25px; border-radius: 18px; width: auto; }
+      .color-card { width: calc(33.333% - 14px); max-width: 180px; padding: 15px; border-radius: 12px; }
+      .color-box { height: 70px; border-radius: 8px; margin-bottom: 12px; }
+      .color-info { font-size: 0.9em; }
+      .color-info strong { font-size: 1.05em; }
+      .copy-hex-btn svg { width: 14px; height: 14px; }
+      .no-results, .initial-message { font-size: 1.2em; }
+      .tool-section { padding: 25px 30px; }
+      .tool-section h2 { font-size: 2em; }
+      footer { font-size: 0.9em; padding: 20px 25px; padding-bottom: 70px; border-radius: 20px; }
+      #dark-mode-toggle { top: 20px; right: 25px; width: 40px; height: 40px; }
+      #dark-mode-toggle svg { width: 20px; height: 20px; }
+      #scroll-to-top-btn { top: 70px; right: 25px; width: 40px; height: 40px; }
+      #scroll-to-top-btn svg { width: 20px; height: 20px; }
+      .modal-content { padding: 25px 30px; }
+      .modal-color-swatch { height: 120px; }
+      .modal-content h2 { font-size: 1.8em; }
+      .palette-swatch-item .palette-color-box { width: 60px; height: 60px; }
     }
 
     @media (min-width: 992px) {
-      h1 {
-        font-size: 3.5em;
-      }
-      .color-card {
-        width: calc(25% - 15px); 
-      }
-      .gradient-controls { 
-         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      }
+      h1 { font-size: 3.5em; }
+      .color-card { width: calc(25% - 15px); }
+      .gradient-controls { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
     }
     @media (min-width: 1200px) {
-      .color-card {
-        width: calc(20% - 16px); 
-      }
+      .color-card { width: calc(20% - 16px); }
     }
 
   </style>
@@ -1192,7 +1101,6 @@
     // Main page elements
     const searchBoxElement = document.getElementById('search-box');
     const searchBtnElement = document.getElementById('search-btn');
-    // const randomColorBtnElement = document.getElementById('random-color-btn'); // Removed
     const colorDisplayElement = document.getElementById('color-display');
     const darkModeToggleElement = document.getElementById('dark-mode-toggle');
     const sunIconElement = document.getElementById('theme-icon-sun');
@@ -1227,7 +1135,7 @@
     const copyGradientCssBtn = document.getElementById('copy-gradient-css-btn');
 
     // --- CONSTANTS & MESSAGES ---
-    const WELCOME_MESSAGE = "Welcome to ColorPedia! Here's a taste of our vibrant palette. Use the search bar above to find specific colors, or try the Gradient Generator below!"; // Updated message
+    const WELCOME_MESSAGE = "Welcome to ColorPedia! Here's a taste of our vibrant palette. Use the search bar above to find specific colors, or try the Gradient Generator below!";
     const SEARCH_PROMPT_MESSAGE = "Enter a color name or hex code to start your search, or discover some of our featured colors below!";
     const NO_COLORS_IN_DB_MESSAGE = "No colors available in the database currently. Please check back later!";
     const WCAG_LEVELS = {
@@ -1236,113 +1144,69 @@
 
     // --- COLOR DATABASE ---
     const colorDatabase = [ 
-      // Reds
-      { name: "Indian Red", hex: "#CD5C5C" }, { name: "Light Coral", hex: "#F08080" },
-      { name: "Salmon", hex: "#FA8072" }, { name: "Dark Salmon", hex: "#E9967A" },
-      { name: "Light Salmon", hex: "#FFA07A" }, { name: "Crimson", hex: "#DC143C" },
-      { name: "Red", hex: "#FF0000" }, { name: "Matte Red", hex: "#B33F40" },
-      { name: "Glossy Red", hex: "#DD0004" }, { name: "Light Red", hex: "#c91100" },
-      { name: "Metallic Red", hex: "#B71C1C" }, { name: "Fire Brick", hex: "#B22222" },
-      { name: "Dark Red", hex: "#8B0000" },{ name: "Alabama Crimson", hex: "#AF002A" },
-      // Pinks
-      { name: "Pink", hex: "#FFC0CB" }, { name: "Matte Pink", hex: "#EC407A" },
-      { name: "Metallic Pink", hex: "#AD1457" }, { name: "Light Pink", hex: "#FFB6C1" },
-      { name: "Hot Pink", hex: "#FF69B4" }, { name: "Deep Pink", hex: "#FF1493" },
-      { name: "Medium Violet Red", hex: "#C71585" }, { name: "Pale Violet Red", hex: "#DB7093" },
-      { name: "Soft Pink", hex: "#E89EB8" },
-      // Oranges
-      { name: "Coral", hex: "#FF7F50" }, { name: "Tomato", hex: "#FF6347" },
-      { name: "Orange Red", hex: "#FF4500" }, { name: "Dark Orange", hex: "#FF8C00" },
-      { name: "Orange", hex: "#FFA500" }, { name: "Matte Orange", hex: "#F57C00" },
-      { name: "Metallic Orange", hex: "#E65100" },
-      // Yellows
-      { name: "Gold", hex: "#FFD700" }, { name: "Yellow", hex: "#FFFF00" },
-      { name: "Matte Yellow", hex: "#FBC02D" }, { name: "Metallic Yellow", hex: "#F9A825" },
-      { name: "Light Yellow", hex: "#FFFFE0" }, { name: "Lemon Chiffon", hex: "#FFFACD" },
-      { name: "Papaya Whip", hex: "#FFEFD5" }, { name: "Moccasin", hex: "#FFE4B5" },
-      { name: "Peach Puff", hex: "#FFDAB9" }, { name: "Pale Goldenrod", hex: "#EEE8AA" },
-      { name: "Khaki", hex: "#F0E68C" }, { name: "Dark Khaki", hex: "#BDB76B" },{ name: "BRIMSTONE YELLOW", hex: "#F4D83F" },
-      // Greens
-      { name: "Green Yellow", hex: "#ADFF2F" }, { name: "Chartreuse", hex: "#7FFF00" },
-      { name: "Lawn Green", hex: "#7CFC00" }, { name: "Lime", hex: "#00FF00" },
-      { name: "Matte Lime", hex: "#AFB42B" }, { name: "Metallic Lime", hex: "#827717" },
-      { name: "Lime Green", hex: "#32CD32" }, { name: "Pale Green", hex: "#98FB98" },
-      { name: "Light Green", hex: "#90EE90" }, { name: "Medium Spring Green", hex: "#00FA9A" },
-      { name: "Spring Green", hex: "#00FF7F" }, { name: "Medium Sea Green", hex: "#3CB371" },
-      { name: "Sea Green", hex: "#2E8B57" }, { name: "Forest Green", hex: "#228B22" },
-      { name: "Green", hex: "#008000" }, { name: "Matte Green", hex: "#48A14D" },
-      { name: "Metallic Green", hex: "#1B5E20" }, { name: "Dark Green", hex: "#006400" }, 
-      { name: "Yellow Green", hex: "#9ACD32" }, { name: "Olive Drab", hex: "#6B8E23" }, 
-      { name: "Olive", hex: "#808000" }, { name: "Dark Olive Green", hex: "#556B2F" }, 
-      { name: "Dark Sea Green", hex: "#8FBC8F" }, { name: "Light Sea Green", hex: "#20B2AA" }, 
-      { name: "Dark Cyan", hex: "#008B8B" }, { name: "Teal", hex: "#008080" },{ name: "Acid Green", hex: "#B0BF1A" },
-      // Cyans
-      { name: "Aqua", hex: "#00FFFF" }, { name: "Cyan", hex: "#00FFFF" },
-      { name: "Matte Cyan", hex: "#00ACC1" }, { name: "Metallic Cyan", hex: "#00838F" },
-      { name: "Light Cyan", hex: "#E0FFFF" }, { name: "Pale Turquoise", hex: "#AFEEEE" },
-      { name: "Aquamarine", hex: "#7FFFD4" }, { name: "Turquoise", hex: "#40E0D0" },
-      { name: "Medium Turquoise", hex: "#48D1CC" }, { name: "Dark Turquoise", hex: "#00CED1" },
-      { name: "Zomp", hex: "#39A78E" },
-      // Blues
-      { name: "Cadet Blue", hex: "#5F9EA0" }, { name: "Steel Blue", hex: "#4682B4" },
-      { name: "Light Steel Blue", hex: "#B0C4DE" }, { name: "Powder Blue", hex: "#B0E0E6" },
-      { name: "Light Blue", hex: "#ADD8E6" }, { name: "Sky Blue", hex: "#87CEEB" },
-      { name: "Light Sky Blue", hex: "#87CEFA" }, { name: "Deep Sky Blue", hex: "#00BFFF" },
-      { name: "Dodger Blue", hex: "#1E90FF" }, { name: "Cornflower Blue", hex: "#6495ED" },
-      { name: "Medium Slate Blue", hex: "#7B68EE" }, { name: "Royal Blue", hex: "#4169E1" },
-      { name: "Blue", hex: "#0000FF" }, { name: "Matte Blue", hex: "#1976D2" },
-      { name: "Metallic Blue", hex: "#0D47A1" }, { name: "Medium Blue", hex: "#0000CD" },
-      { name: "Dark Blue", hex: "#00008B" }, { name: "Navy", hex: "#000080" },
-      { name: "Matte Navy", hex: "#283593" }, { name: "Metallic Navy", hex: "#1A237E" },
-      { name: "Midnight Blue", hex: "#191970" },{ name: "Matte Dark Blue", hex: "#0B0B60" },
-      { name: "Brilliant Blue", hex: "#2752D6" },{ name: "Air Superiority Blue", hex: "#72A0C1" },
-      { name: "Aero Blue", hex: "#C9FFE5" },{ name: "Air Force Blue (RAF)", hex: "#5D8AA8" },
-      { name: "Absolute Zero", hex: "#0048BA" },{ name: "Aero", hex: "#7CB9E8" },
-      { name: "Zaffre", hex: "#0014A8" },
-      // Purples, Violets, Magentas
-      { name: "Lavender", hex: "#E6E6FA" }, { name: "Thistle", hex: "#D8BFD8" },
-      { name: "Plum", hex: "#DDA0DD" }, { name: "Violet", hex: "#EE82EE" },
-      { name: "Matte Violet", hex: "#8658A5" }, { name: "Orchid", hex: "#DA70D6" }, 
-      { name: "Fuchsia", hex: "#FF00FF" }, { name: "Magenta", hex: "#FF00FF" }, 
-      { name: "Matte Magenta", hex: "#C2185B" }, { name: "Metallic Magenta", hex: "#880E4F" }, 
-      { name: "Medium Orchid", hex: "#BA55D3" }, { name: "Medium Purple", hex: "#9370DB" }, 
-      { name: "Rebecca Purple", hex: "#663399" }, { name: "Blue Violet", hex: "#8A2BE2" },
-      { name: "Dark Violet", hex: "#9400D3" }, { name: "Dark Orchid", hex: "#9932CC" }, 
-      { name: "Dark Magenta", hex: "#8B008B" }, { name: "Purple", hex: "#800080" }, 
-      { name: "Matte Purple", hex: "#7B1FA2" }, { name: "Metallic Purple", hex: "#4A148C" }, 
-      { name: "Indigo", hex: "#4B0082" }, { name: "Slate Blue", hex: "#6A5ACD" }, 
-      { name: "Dark Slate Blue", hex: "#483D8B" }, { name: "Matte Burgundy", hex: "#691C2D" },
-      { name: "African Violet", hex: "#B284BE" },
-      // Browns
-      { name: "Cornsilk", hex: "#FFF8DC" }, { name: "Blanched Almond", hex: "#FFEBCD" },
-      { name: "Bisque", hex: "#FFE4C4" }, { name: "Navajo White", hex: "#FFDEAD" },
-      { name: "Wheat", hex: "#F5DEB3" }, { name: "Burly Wood", hex: "#DEB887" },
-      { name: "Tan", hex: "#D2B48C" }, { name: "Rosy Brown", hex: "#BC8F8F" },
-      { name: "Sandy Brown", hex: "#F4A460" }, { name: "Goldenrod", hex: "#DAA520" },
-      { name: "Dark Goldenrod", hex: "#B8860B" }, { name: "Peru", hex: "#CD853F" },
-      { name: "Chocolate", hex: "#D2691E" }, { name: "Saddle Brown", hex: "#8B4513" },
-      { name: "Sienna", hex: "#A0522D" }, { name: "Brown", hex: "#A52A2A" },
-      { name: "Matte Brown", hex: "#5D4037" }, { name: "Metallic Brown", hex: "#3E2723" },
-      { name: "Maroon", hex: "#800000" },{ name: "Zinnwaldite Brown", hex: "#2C1608" },
-      // Whites
-      { name: "White", hex: "#FFFFFF" }, { name: "Matte White", hex: "#e6e9e9" },
-      { name: "Metallic White", hex: "#ECEFF1" }, { name: "Snow", hex: "#FFFAFA" },
-      { name: "Honey Dew", hex: "#F0FFF0" }, { name: "Mint Cream", hex: "#F5FFFA" },
-      { name: "Azure", hex: "#F0FFFF" }, { name: "Alice Blue", hex: "#F0F8FF" },
-      { name: "Ghost White", hex: "#F8F8FF" }, { name: "White Smoke", hex: "#F5F5F5" },
-      { name: "Sea Shell", hex: "#FFF5EE" }, { name: "Beige", hex: "#F5F5DC" },
-      { name: "Old Lace", hex: "#FDF5E6" }, { name: "Floral White", hex: "#FFFAF0" },
-      { name: "Ivory", hex: "#FFFFF0" }, { name: "Antique White", hex: "#FAEBD7" },
-      { name: "Linen", hex: "#FAF0E6" }, { name: "Lavender Blush", hex: "#FFF0F5" },
-      // Grays and Blacks
-      { name: "Gainsboro", hex: "#DCDCDC" }, { name: "Light Gray", hex: "#D3D3D3" },
-      { name: "Silver", hex: "#C0C0C0" }, { name: "Dark Gray", hex: "#A9A9A9" },
-      { name: "Gray", hex: "#808080" }, { name: "Matte Gray", hex: "#757575" },
-      { name: "Metallic Gray", hex: "#616161" }, { name: "Silver Gray Metallic", hex: "#8A92A6" },
-      { name: "Dim Gray", hex: "#696969" }, { name: "Lavender Gray", hex: "#C3C5C9" },
-      { name: "Light Slate Gray", hex: "#778899" }, { name: "Slate Gray", hex: "#708090" },
-      { name: "Dark Slate Gray", hex: "#2F4F4F" }, { name: "Black", hex: "#000000" },
-      { name: "Matte Black", hex: "#28282B" }, { name: "Velvet Black", hex: "#231f20" },
+      { name: "Indian Red", hex: "#CD5C5C" }, { name: "Light Coral", hex: "#F08080" }, { name: "Salmon", hex: "#FA8072" }, 
+      { name: "Dark Salmon", hex: "#E9967A" }, { name: "Light Salmon", hex: "#FFA07A" }, { name: "Crimson", hex: "#DC143C" },
+      { name: "Red", hex: "#FF0000" }, { name: "Matte Red", hex: "#B33F40" }, { name: "Glossy Red", hex: "#DD0004" },
+      { name: "Light Red", hex: "#c91100" }, { name: "Metallic Red", hex: "#B71C1C" }, { name: "Fire Brick", hex: "#B22222" },
+      { name: "Dark Red", hex: "#8B0000" },{ name: "Alabama Crimson", hex: "#AF002A" }, { name: "Pink", hex: "#FFC0CB" },
+      { name: "Matte Pink", hex: "#EC407A" }, { name: "Metallic Pink", hex: "#AD1457" }, { name: "Light Pink", hex: "#FFB6C1" },
+      { name: "Hot Pink", hex: "#FF69B4" }, { name: "Deep Pink", hex: "#FF1493" }, { name: "Medium Violet Red", hex: "#C71585" },
+      { name: "Pale Violet Red", hex: "#DB7093" }, { name: "Soft Pink", hex: "#E89EB8" }, { name: "Coral", hex: "#FF7F50" },
+      { name: "Tomato", hex: "#FF6347" }, { name: "Orange Red", hex: "#FF4500" }, { name: "Dark Orange", hex: "#FF8C00" },
+      { name: "Orange", hex: "#FFA500" }, { name: "Matte Orange", hex: "#F57C00" }, { name: "Metallic Orange", hex: "#E65100" },
+      { name: "Gold", hex: "#FFD700" }, { name: "Yellow", hex: "#FFFF00" }, { name: "Matte Yellow", hex: "#FBC02D" },
+      { name: "Metallic Yellow", hex: "#F9A825" }, { name: "Light Yellow", hex: "#FFFFE0" }, { name: "Lemon Chiffon", hex: "#FFFACD" },
+      { name: "Papaya Whip", hex: "#FFEFD5" }, { name: "Moccasin", hex: "#FFE4B5" }, { name: "Peach Puff", hex: "#FFDAB9" },
+      { name: "Pale Goldenrod", hex: "#EEE8AA" }, { name: "Khaki", hex: "#F0E68C" }, { name: "Dark Khaki", hex: "#BDB76B" },
+      { name: "BRIMSTONE YELLOW", hex: "#F4D83F" }, { name: "Green Yellow", hex: "#ADFF2F" }, { name: "Chartreuse", hex: "#7FFF00" },
+      { name: "Lawn Green", hex: "#7CFC00" }, { name: "Lime", hex: "#00FF00" }, { name: "Matte Lime", hex: "#AFB42B" },
+      { name: "Metallic Lime", hex: "#827717" }, { name: "Lime Green", hex: "#32CD32" }, { name: "Pale Green", hex: "#98FB98" },
+      { name: "Light Green", hex: "#90EE90" }, { name: "Medium Spring Green", hex: "#00FA9A" }, { name: "Spring Green", hex: "#00FF7F" },
+      { name: "Medium Sea Green", hex: "#3CB371" }, { name: "Sea Green", hex: "#2E8B57" }, { name: "Forest Green", hex: "#228B22" },
+      { name: "Green", hex: "#008000" }, { name: "Matte Green", hex: "#48A14D" }, { name: "Metallic Green", hex: "#1B5E20" },
+      { name: "Dark Green", hex: "#006400" }, { name: "Yellow Green", hex: "#9ACD32" }, { name: "Olive Drab", hex: "#6B8E23" }, 
+      { name: "Olive", hex: "#808000" }, { name: "Dark Olive Green", hex: "#556B2F" }, { name: "Dark Sea Green", hex: "#8FBC8F" },
+      { name: "Light Sea Green", hex: "#20B2AA" }, { name: "Dark Cyan", hex: "#008B8B" }, { name: "Teal", hex: "#008080" },
+      { name: "Acid Green", hex: "#B0BF1A" }, { name: "Aqua", hex: "#00FFFF" }, { name: "Cyan", hex: "#00FFFF" },
+      { name: "Matte Cyan", hex: "#00ACC1" }, { name: "Metallic Cyan", hex: "#00838F" }, { name: "Light Cyan", hex: "#E0FFFF" },
+      { name: "Pale Turquoise", hex: "#AFEEEE" }, { name: "Aquamarine", hex: "#7FFFD4" }, { name: "Turquoise", hex: "#40E0D0" },
+      { name: "Medium Turquoise", hex: "#48D1CC" }, { name: "Dark Turquoise", hex: "#00CED1" }, { name: "Zomp", hex: "#39A78E" },
+      { name: "Cadet Blue", hex: "#5F9EA0" }, { name: "Steel Blue", hex: "#4682B4" }, { name: "Light Steel Blue", hex: "#B0C4DE" },
+      { name: "Powder Blue", hex: "#B0E0E6" }, { name: "Light Blue", hex: "#ADD8E6" }, { name: "Sky Blue", hex: "#87CEEB" },
+      { name: "Light Sky Blue", hex: "#87CEFA" }, { name: "Deep Sky Blue", hex: "#00BFFF" }, { name: "Dodger Blue", hex: "#1E90FF" },
+      { name: "Cornflower Blue", hex: "#6495ED" }, { name: "Medium Slate Blue", hex: "#7B68EE" }, { name: "Royal Blue", hex: "#4169E1" },
+      { name: "Blue", hex: "#0000FF" }, { name: "Matte Blue", hex: "#1976D2" }, { name: "Metallic Blue", hex: "#0D47A1" },
+      { name: "Medium Blue", hex: "#0000CD" }, { name: "Dark Blue", hex: "#00008B" }, { name: "Navy", hex: "#000080" },
+      { name: "Matte Navy", hex: "#283593" }, { name: "Metallic Navy", hex: "#1A237E" }, { name: "Midnight Blue", hex: "#191970" },
+      { name: "Matte Dark Blue", hex: "#0B0B60" }, { name: "Brilliant Blue", hex: "#2752D6" },{ name: "Air Superiority Blue", hex: "#72A0C1" },
+      { name: "Aero Blue", hex: "#C9FFE5" },{ name: "Air Force Blue (RAF)", hex: "#5D8AA8" }, { name: "Absolute Zero", hex: "#0048BA" },
+      { name: "Aero", hex: "#7CB9E8" }, { name: "Zaffre", hex: "#0014A8" }, { name: "Lavender", hex: "#E6E6FA" },
+      { name: "Thistle", hex: "#D8BFD8" }, { name: "Plum", hex: "#DDA0DD" }, { name: "Violet", hex: "#EE82EE" },
+      { name: "Matte Violet", hex: "#8658A5" }, { name: "Orchid", hex: "#DA70D6" }, { name: "Fuchsia", hex: "#FF00FF" },
+      { name: "Magenta", hex: "#FF00FF" }, { name: "Matte Magenta", hex: "#C2185B" }, { name: "Metallic Magenta", hex: "#880E4F" }, 
+      { name: "Medium Orchid", hex: "#BA55D3" }, { name: "Medium Purple", hex: "#9370DB" }, { name: "Rebecca Purple", hex: "#663399" },
+      { name: "Blue Violet", hex: "#8A2BE2" }, { name: "Dark Violet", hex: "#9400D3" }, { name: "Dark Orchid", hex: "#9932CC" }, 
+      { name: "Dark Magenta", hex: "#8B008B" }, { name: "Purple", hex: "#800080" }, { name: "Matte Purple", hex: "#7B1FA2" },
+      { name: "Metallic Purple", hex: "#4A148C" }, { name: "Indigo", hex: "#4B0082" }, { name: "Slate Blue", hex: "#6A5ACD" }, 
+      { name: "Dark Slate Blue", hex: "#483D8B" }, { name: "Matte Burgundy", hex: "#691C2D" }, { name: "African Violet", hex: "#B284BE" },
+      { name: "Cornsilk", hex: "#FFF8DC" }, { name: "Blanched Almond", hex: "#FFEBCD" }, { name: "Bisque", hex: "#FFE4C4" },
+      { name: "Navajo White", hex: "#FFDEAD" }, { name: "Wheat", hex: "#F5DEB3" }, { name: "Burly Wood", hex: "#DEB887" },
+      { name: "Tan", hex: "#D2B48C" }, { name: "Rosy Brown", hex: "#BC8F8F" }, { name: "Sandy Brown", hex: "#F4A460" },
+      { name: "Goldenrod", hex: "#DAA520" }, { name: "Dark Goldenrod", hex: "#B8860B" }, { name: "Peru", hex: "#CD853F" },
+      { name: "Chocolate", hex: "#D2691E" }, { name: "Saddle Brown", hex: "#8B4513" }, { name: "Sienna", hex: "#A0522D" },
+      { name: "Brown", hex: "#A52A2A" }, { name: "Matte Brown", hex: "#5D4037" }, { name: "Metallic Brown", hex: "#3E2723" },
+      { name: "Maroon", hex: "#800000" },{ name: "Zinnwaldite Brown", hex: "#2C1608" }, { name: "White", hex: "#FFFFFF" },
+      { name: "Matte White", hex: "#e6e9e9" }, { name: "Metallic White", hex: "#ECEFF1" }, { name: "Snow", hex: "#FFFAFA" },
+      { name: "Honey Dew", hex: "#F0FFF0" }, { name: "Mint Cream", hex: "#F5FFFA" }, { name: "Azure", hex: "#F0FFFF" },
+      { name: "Alice Blue", hex: "#F0F8FF" }, { name: "Ghost White", hex: "#F8F8FF" }, { name: "White Smoke", hex: "#F5F5F5" },
+      { name: "Sea Shell", hex: "#FFF5EE" }, { name: "Beige", hex: "#F5F5DC" }, { name: "Old Lace", hex: "#FDF5E6" },
+      { name: "Floral White", hex: "#FFFAF0" }, { name: "Ivory", hex: "#FFFFF0" }, { name: "Antique White", hex: "#FAEBD7" },
+      { name: "Linen", hex: "#FAF0E6" }, { name: "Lavender Blush", hex: "#FFF0F5" }, { name: "Gainsboro", hex: "#DCDCDC" },
+      { name: "Light Gray", hex: "#D3D3D3" }, { name: "Silver", hex: "#C0C0C0" }, { name: "Dark Gray", hex: "#A9A9A9" },
+      { name: "Gray", hex: "#808080" }, { name: "Matte Gray", hex: "#757575" }, { name: "Metallic Gray", hex: "#616161" },
+      { name: "Silver Gray Metallic", hex: "#8A92A6" }, { name: "Dim Gray", hex: "#696969" }, { name: "Lavender Gray", hex: "#C3C5C9" },
+      { name: "Light Slate Gray", hex: "#778899" }, { name: "Slate Gray", hex: "#708090" }, { name: "Dark Slate Gray", hex: "#2F4F4F" },
+      { name: "Black", hex: "#000000" }, { name: "Matte Black", hex: "#28282B" }, { name: "Velvet Black", hex: "#231f20" },
       { name: "Metallic Black", hex: "#424242" }
     ];
 
@@ -1673,7 +1537,7 @@
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(textToCopy).then(showSuccess).catch(err => {
                 console.warn('navigator.clipboard.writeText failed, trying fallback: ', err);
-                fallbackCopyTextToClipboard(textToCopy, showSuccess, showError); // Corrected parameters
+                fallbackCopyTextToClipboard(textToCopy, showSuccess, showError);
             });
         } else {
             console.warn('navigator.clipboard.writeText not available, using fallback.');
@@ -1681,7 +1545,7 @@
         }
     }
 
-    function fallbackCopyTextToClipboard(text, successCallback, errorCallback) { // Corrected parameters
+    function fallbackCopyTextToClipboard(text, successCallback, errorCallback) {
       const textArea = document.createElement("textarea");
       textArea.value = text;
       textArea.style.top = "0"; textArea.style.left = "0"; textArea.style.position = "fixed";
@@ -1726,8 +1590,6 @@
             }
         });
     }
-
-    // Removed event listener for randomColorBtnElement
 
     if(siteTitleElement) siteTitleElement.addEventListener('click', () => window.location.reload());
 
@@ -1827,6 +1689,25 @@
           window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
+
+    // --- RIGHT-CLICK PROTECTION ---
+    document.addEventListener('contextmenu', function(event) {
+        // Allow right-click on specific input/textarea elements and color pickers
+        const targetElement = event.target;
+        const allowedSelectors = [
+            '#search-box',
+            '#gradient-css-output',
+            '#grad-color-1',
+            '#grad-color-2'
+        ];
+
+        if (allowedSelectors.some(selector => targetElement.matches(selector)) || 
+            targetElement.closest('input[type="color"]')) { // Also allow for color input's own UI
+            return; // Do not prevent default context menu
+        }
+        event.preventDefault(); // Prevent context menu for all other elements
+    });
+
 
     // --- INITIALIZATION ON WINDOW LOAD ---
     window.onload = () => {
