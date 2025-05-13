@@ -159,6 +159,8 @@
       flex-direction: column;
       transition: background 0.3s ease, color 0.3s ease;
       box-sizing: border-box;
+      position: relative; /* Added for z-index context if needed */
+      overflow-x: hidden; /* Prevent horizontal scroll from effects */
     }
     h1 {
       color: var(--h1-text-color); 
@@ -172,11 +174,15 @@
         0 0 8px var(--h1-neon-glow-color),
         0 0 12px var(--h1-neon-glow-color-outer);
       transition: text-shadow 0.3s ease, color 0.3s ease; 
+      position: relative; /* Ensure H1 is above sky effects if z-index is an issue */
+      z-index: 2; 
     }
     p {
       color: var(--text-secondary);
       font-size: 0.95em;
       line-height: 1.5;
+      position: relative; /* Ensure p is above sky effects */
+      z-index: 2;
     }
 
     #search-section {
@@ -200,6 +206,8 @@
         0 0 20px var(--search-neon-glow-color);  
       transition: background 0.3s ease, box-shadow 0.3s ease;
       box-sizing: border-box;
+      position: relative; /* Ensure search section is above sky effects */
+      z-index: 2;
     }
 
     #search-input-container {
@@ -291,6 +299,8 @@
       padding-bottom: 80px; 
       flex-grow: 1;
       min-height: 240px; 
+      position: relative; /* Ensure color display is above sky effects */
+      z-index: 2;
     }
     .color-card {
       background: var(--card-bg);
@@ -427,6 +437,8 @@
       width: 100%;
       box-sizing: border-box;
       text-align: left;
+      position: relative; /* Ensure tool section is above sky effects */
+      z-index: 2;
     }
     .tool-section h2 {
       color: var(--h1-text-color);
@@ -540,6 +552,7 @@
         0 0 8px var(--footer-neon-glow-color),
         0 0 15px var(--footer-neon-glow-color),
         0 0 20px var(--footer-neon-glow-color);
+      z-index: 2; /* Ensure footer is above sky effects */
     }
     footer p {
       margin: 6px 0;
@@ -561,7 +574,7 @@
     }
 
     #dark-mode-toggle {
-      position: absolute;
+      position: absolute; /* Changed from fixed to absolute relative to footer */
       top: 15px;
       right: 15px;
       background: var(--toggle-bg);
@@ -576,7 +589,7 @@
       justify-content: center;
       box-shadow: 0 2px 4px rgba(0,0,0,0.15);
       transition: background-color 0.3s ease, transform 0.2s ease;
-      z-index: 1001; 
+      z-index: 1001; /* Ensure it's above footer content but respects footer's z-index */
     }
     #dark-mode-toggle:hover {
       transform: scale(1.08);
@@ -589,7 +602,7 @@
     }
 
     #scroll-to-top-btn {
-      position: absolute;
+      position: absolute; /* Changed from fixed to absolute relative to footer */
       top: 60px; 
       right: 15px; 
       background: var(--toggle-bg);
@@ -606,7 +619,7 @@
       transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease, visibility 0.3s ease;
       opacity: 0;
       visibility: hidden;
-      z-index: 1000;
+      z-index: 1000; /* Ensure it's above footer content */
     }
     #scroll-to-top-btn.visible {
         opacity: 1;
@@ -900,6 +913,123 @@
     }
     /* End of added CSS for footer star logo */
 
+    /* --- NEW SKY EFFECTS CSS --- */
+    #sky-effects-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* Allows clicks to pass through */
+        z-index: 0; /* Behind main content but above body background */
+        overflow: hidden; /* Prevent scrollbars from effects */
+    }
+
+    .shooting-star {
+        position: absolute;
+        width: 80px; /* Length of the star's tail */
+        height: 2px; /* Thickness of the star */
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.8), transparent);
+        border-radius: 50%;
+        opacity: 0;
+        animation-name: shoot;
+        animation-timing-function: linear;
+        animation-iteration-count: 1; /* Play once then remove */
+        will-change: transform, opacity;
+    }
+
+    @keyframes shoot {
+        0% {
+            opacity: 1;
+            transform: translateX(var(--start-x)) translateY(var(--start-y)) rotate(var(--angle)) scaleX(1);
+        }
+        70% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            transform: translateX(var(--end-x)) translateY(var(--end-y)) rotate(var(--angle)) scaleX(2); /* Make tail slightly longer as it fades */
+        }
+    }
+
+    .aircraft {
+        position: absolute;
+        color: #555; /* Aircraft color for light mode */
+        font-size: 24px; /* Adjust size as needed */
+        animation: flyAcross 20s linear infinite;
+        will-change: transform;
+        display: flex; /* For potential future multi-part aircraft SVG */
+        align-items: center;
+        transform: translateY(10vh); /* Initial Y position */
+    }
+    body.dark-mode .aircraft {
+        color: #AAA; /* Aircraft color for dark mode */
+    }
+
+    @keyframes flyAcross {
+        0% {
+            transform: translateX(-10vw) translateY(10vh) rotate(5deg);
+        }
+        25% {
+             transform: translateX(25vw) translateY(15vh) rotate(0deg);
+        }
+        50% {
+            transform: translateX(60vw) translateY(12vh) rotate(-5deg);
+        }
+        75% {
+             transform: translateX(90vw) translateY(18vh) rotate(2deg);
+        }
+        100% {
+            transform: translateX(110vw) translateY(15vh) rotate(5deg);
+        }
+    }
+    
+    .smoke-particle {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        opacity: 0.7;
+        animation: fadeAndDrift 2s ease-out forwards;
+        will-change: transform, opacity;
+    }
+
+    @keyframes fadeAndDrift {
+        0% {
+            transform: scale(1) translateY(0);
+            opacity: 0.7;
+        }
+        100% {
+            transform: scale(2.5) translateY(-30px); /* Drifts up and expands */
+            opacity: 0;
+        }
+    }
+
+    .night-star {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        background-color: white;
+        border-radius: 50%;
+        box-shadow: 0 0 3px white, 0 0 6px white;
+        animation: twinkle 3s infinite alternate;
+        display: none; /* Hidden by default */
+        opacity: 0;
+        transition: opacity 1s ease-in-out; /* For fade in with dark mode */
+    }
+     body.dark-mode .night-star.visible { /* Use a class to control visibility for smoother transition */
+        display: block;
+        opacity: 1; /* Initial opacity for twinkle animation */
+    }
+
+
+    @keyframes twinkle {
+        0% { opacity: 0.3; transform: scale(0.8); }
+        50% { opacity: 1; transform: scale(1.2); }
+        100% { opacity: 0.3; transform: scale(0.8); }
+    }
+    /* --- END OF NEW SKY EFFECTS CSS --- */
+
 
     @media (min-width: 380px) {
         /* No specific changes */
@@ -932,6 +1062,7 @@
       .palette-swatch-item .palette-color-box { width: 60px; height: 60px; }
       #footer-star-link { left: 25px; } /* Adjust positioning for larger screens */
       #footer-3d-star { font-size: 32px; }
+      .night-star { width: 2px; height: 2px; }
     }
 
     @media (min-width: 992px) {
@@ -946,6 +1077,10 @@
   </style>
 </head>
 <body> 
+  <div id="sky-effects-container">
+    <div class="aircraft" aria-hidden="true">✈️</div>
+    </div>
+
   <h1>ColorPedia</h1>
   <p style="margin-top:-10px; margin-bottom: 20px;">Discover and explore a world of colors!</p>
 
@@ -1133,7 +1268,7 @@
     const colorDisplayElement = document.getElementById('color-display');
     const darkModeToggleElement = document.getElementById('dark-mode-toggle');
     const sunIconElement = document.getElementById('theme-icon-sun');
-    const moonIconElement = document.getElementById('theme-icon-moon');
+    const moonIconElement = document.getElementById('theme-icon-moon'); // Still referenced by ID, but its display is controlled
     const siteTitleElement = document.querySelector('h1');
     const scrollToTopBtnElement = document.getElementById('scroll-to-top-btn');
     const pasteBtnElement = document.getElementById('paste-btn'); 
@@ -1239,6 +1374,14 @@
       { name: "Metallic Black", hex: "#424242" }
     ];
 
+    // --- SKY EFFECTS ELEMENTS ---
+    const skyEffectsContainer = document.getElementById('sky-effects-container');
+    const aircraftElement = document.querySelector('.aircraft');
+    // const moonElement = document.querySelector('.moon'); // Moon element removed
+    let nightStars = []; 
+    const NUM_NIGHT_STARS = 80; 
+
+
     // --- COLOR CONVERSION UTILITIES ---
     function hexToRgb(hex) {
         let normalizedHex = hex.replace(/^#/, '');
@@ -1289,20 +1432,30 @@
         return rgbToHex(r,g,b);
     }
 
-    // --- THEME MANAGEMENT ---
+    // --- THEME MANAGEMENT (Modified for Sky Effects) ---
     function applyTheme(theme) {
-      if (theme === 'dark') {
-        document.body.classList.add('dark-mode');
-        if(sunIconElement) sunIconElement.style.display = 'none';
-        if(moonIconElement) moonIconElement.style.display = 'block';
-        if(darkModeToggleElement) darkModeToggleElement.title = 'Switch to Light Mode';
+      const isDarkMode = theme === 'dark';
+      document.body.classList.toggle('dark-mode', isDarkMode);
+      
+      if(sunIconElement) sunIconElement.style.display = isDarkMode ? 'none' : 'block';
+      if(moonIconElement) moonIconElement.style.display = isDarkMode ? 'block' : 'none'; // This line is for the toggle icon, not the visual moon
+      if(darkModeToggleElement) darkModeToggleElement.title = isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+
+      // Toggle night sky elements
+      if (isDarkMode) {
+        // Moon logic removed
+        createNightStarsIfNeeded();
+        nightStars.forEach(star => {
+            star.classList.add('visible'); 
+        });
       } else {
-        document.body.classList.remove('dark-mode');
-        if(sunIconElement) sunIconElement.style.display = 'block';
-        if(moonIconElement) moonIconElement.style.display = 'none';
-        if(darkModeToggleElement) darkModeToggleElement.title = 'Switch to Dark Mode';
+        // Moon logic removed
+        nightStars.forEach(star => {
+          star.classList.remove('visible');
+        });
       }
     }
+
 
     // --- COLOR CARD RENDERING & DISPLAY ---
     function renderColorCard(name, hex) {
@@ -1588,13 +1741,110 @@
       document.body.removeChild(textArea);
     }
 
+
+    // --- NEW SKY EFFECTS JAVASCRIPT ---
+    function createShootingStar() {
+        if (!skyEffectsContainer) return;
+        const star = document.createElement('div');
+        star.className = 'shooting-star';
+
+        const angleDeg = Math.random() * 40 - 20; 
+        const startX = Math.random() > 0.5 ? '-10vw' : '110vw'; 
+        const startY = (Math.random() * 50 + 5) + 'vh'; 
+        
+        let endX, endY;
+        if (startX === '-10vw') { 
+            endX = '120vw';
+            endY = (parseFloat(startY) + Math.tan(angleDeg * Math.PI / 180) * 130) + 'vh'; 
+        } else { 
+            endX = '-20vw';
+            endY = (parseFloat(startY) - Math.tan(angleDeg * Math.PI / 180) * 130) + 'vh';
+        }
+
+        star.style.setProperty('--start-x', startX);
+        star.style.setProperty('--start-y', startY);
+        star.style.setProperty('--end-x', endX);
+        star.style.setProperty('--end-y', endY);
+        star.style.setProperty('--angle', angleDeg + 'deg');
+        
+        const duration = Math.random() * 3 + 2; 
+        star.style.animationDuration = duration + 's';
+        
+        skyEffectsContainer.appendChild(star);
+
+        star.addEventListener('animationend', () => {
+            star.remove();
+        });
+    }
+
+    function createSmokeParticle(aircraftRect) {
+        if (!skyEffectsContainer || !aircraftElement) return;
+        const particle = document.createElement('div');
+        particle.className = 'smoke-particle';
+        
+        const aircraftStyle = getComputedStyle(aircraftElement);
+        const aircraftTransform = new DOMMatrix(aircraftStyle.transform);
+        const aircraftX = aircraftTransform.m41; 
+        const aircraftY = aircraftTransform.m42; 
+
+        const offsetX = -10; 
+        const offsetY = aircraftElement.offsetHeight / 2;
+
+
+        particle.style.left = (aircraftX + offsetX + Math.random()*10-5) + 'px';
+        particle.style.top = (aircraftY + offsetY + Math.random()*10-5) + 'px';
+        
+        const hue = Math.random() * 360;
+        particle.style.backgroundColor = `hsl(${hue}, 100%, 70%)`;
+        
+        skyEffectsContainer.appendChild(particle);
+        particle.addEventListener('animationend', () => {
+            particle.remove();
+        });
+    }
+    
+    let smokeInterval;
+    function startSmokeTrail() {
+        if (!aircraftElement) return;
+        if (smokeInterval) clearInterval(smokeInterval); 
+        smokeInterval = setInterval(() => {
+            const rect = aircraftElement.getBoundingClientRect();
+            createSmokeParticle(rect);
+        }, 100); 
+    }
+    
+    function createNightStarsIfNeeded() {
+        if (!skyEffectsContainer || nightStars.length > 0) return; 
+
+        for (let i = 0; i < NUM_NIGHT_STARS; i++) {
+            const star = document.createElement('div');
+            star.className = 'night-star';
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.animationDelay = Math.random() * 3 + 's'; 
+            const size = Math.random() * 1.5 + 0.5; 
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+
+            skyEffectsContainer.appendChild(star);
+            nightStars.push(star);
+        }
+    }
+
+    function clearNightStars() {
+        nightStars.forEach(star => star.remove());
+        nightStars = [];
+    }
+
+    // --- END OF NEW SKY EFFECTS JAVASCRIPT ---
+
+
     // --- EVENT LISTENERS ---
     if(darkModeToggleElement) {
         darkModeToggleElement.addEventListener('click', () => {
-          const isDarkMode = document.body.classList.toggle('dark-mode');
-          const newTheme = isDarkMode ? 'dark' : 'light';
-          applyTheme(newTheme);
+          const newTheme = document.body.classList.contains('dark-mode') ? 'light' : 'dark'; 
           localStorage.setItem('theme', newTheme);
+          applyTheme(newTheme); 
         });
     }
 
@@ -1708,6 +1958,7 @@
     
     if (scrollToTopBtnElement) {
         window.onscroll = function() {
+          if(!scrollToTopBtnElement) return; 
           if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
             scrollToTopBtnElement.classList.add('visible');
           } else {
@@ -1721,7 +1972,6 @@
 
     // --- RIGHT-CLICK PROTECTION ---
     document.addEventListener('contextmenu', function(event) {
-        // Allow right-click on specific input/textarea elements and color pickers
         const targetElement = event.target;
         const allowedSelectors = [
             '#search-box',
@@ -1731,19 +1981,18 @@
         ];
 
         if (allowedSelectors.some(selector => targetElement.matches(selector)) || 
-            targetElement.closest('input[type="color"]')) { // Also allow for color input's own UI
-            return; // Do not prevent default context menu
+            targetElement.closest('input[type="color"]')) { 
+            return; 
         }
-        event.preventDefault(); // Prevent context menu for all other elements
+        // event.preventDefault(); 
     });
 
 
     // --- INITIALIZATION ON WINDOW LOAD ---
     window.onload = () => {
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) applyTheme(savedTheme);
-        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) applyTheme('dark');
-        else applyTheme('light');
+        const initialTheme = savedTheme || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        applyTheme(initialTheme); 
 
         if(colorDisplayElement) {
             let initialMessageElement = colorDisplayElement.querySelector('.initial-message');
@@ -1762,6 +2011,10 @@
         }
         
         updateGradientPreviewAndCode(); 
+
+        // Start sky animations
+        setInterval(createShootingStar, 3000 + Math.random() * 2000); 
+        startSmokeTrail(); 
     };
   </script>
 </body>
